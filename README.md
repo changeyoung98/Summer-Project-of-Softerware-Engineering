@@ -4,3 +4,4 @@
 2018-7-2
 - 建立github repo并各自建立分支，尝试pull request等功能。
 - 建立README
+- 创建初始的maven项目，连接本地摄像头
