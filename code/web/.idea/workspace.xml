@@ -36,7 +36,7 @@
       <file leaf-file-name="CameraTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/java/testcodes/CameraTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-37">
+            <state relative-caret-position="46">
               <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -442,12 +442,12 @@
       <option name="presentableId" value="Default" />
       <updated>1530516533660</updated>
       <workItem from="1530516540343" duration="526000" />
-      <workItem from="1530517978856" duration="563000" />
+      <workItem from="1530517978856" duration="862000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1089000" />
+    <option name="totallyTimeSpent" value="1388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="85" y="25" width="1750" height="969" extended-state="0" />
@@ -522,7 +522,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/java/testcodes/CameraTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
+        <state relative-caret-position="46">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
