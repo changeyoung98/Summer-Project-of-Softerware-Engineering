@@ -9,7 +9,13 @@ import tensorflow as tf
 # c = tf.matmul(a, b)
 # sess = tf.InteractiveSession()
 # print (sess.run(c))
-
+import numpy
+import torch
+if __name__ == '__main__':
+    # CUDA Test
+    x = torch.Tensor([1.0])
+    xx = x.cuda()
+    print(xx)
 
 cap = cv2.VideoCapture(0)
 while(1):
