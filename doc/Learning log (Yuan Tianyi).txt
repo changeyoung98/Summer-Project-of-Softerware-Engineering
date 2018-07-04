@@ -1,0 +1,22 @@
+******************************************Learning log******************************************************
+*************************************************************************************************************
+*********                   Date                          *****                 July.4             **********************************
+Triplet loss reid with TensorFlow
+Theano does not support Win10 well, choose Tensorflow instead.
+Run train.py with Market1501_train to train models.
+First attempt uses CPU(i7-6700HQ with 8GiB system memory) to run. Large memory consumption (approximately 6GiB) and
+CPU-Util (100%).
+Because of limitation on CPU perfomance, the ETA is 30 days(unacceptable).
+
+*****Enviroment configuration******
+tensorflow-gpu v1.6 installled
+CUDA 9.0 for win10 installed
+cuDNN 7.0.5 installed (The latest 7.1.2 seems incompatible for CUDA 9.0)
+**************************************
+
+Second attempt uses GPU(NV GTX960M with 2GiB memory) to run the script.
+The memory usage seems extremely large. Even with arguments (--batch_p 1 --batch_k 1), MEMORY
+STILL EXAUSTED.
+Considering to use developing GPU.
+************************************************************************************************************* 
+
