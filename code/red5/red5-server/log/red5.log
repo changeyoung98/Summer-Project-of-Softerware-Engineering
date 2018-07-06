@@ -1,0 +1,363 @@
+2018-07-04 11:28:20,237 [main] INFO  org.red5.server.Launcher - Red5 Server 1.0.10 (https://github.com/Red5)
+2018-07-04 11:28:20,277 [main] INFO  o.s.c.s.FileSystemXmlApplicationContext - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@7fc2413d: startup date [Wed Jul 04 11:28:20 GMT+08:00 2018]; root of context hierarchy
+2018-07-04 11:28:20,306 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [red5.xml]
+2018-07-04 11:28:20,396 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [jee-container.xml]
+2018-07-04 11:28:20,541 [main] INFO  o.r.spring.Red5ApplicationContext - setApplicationContext: org.springframework.context.support.FileSystemXmlApplicationContext@7fc2413d: startup date [Wed Jul 04 11:28:20 GMT+08:00 2018]; root of context hierarchy
+2018-07-04 11:28:20,541 [main] INFO  o.r.spring.Red5ApplicationContext - Red5ApplicationContext init
+2018-07-04 11:28:20,542 [main] INFO  o.r.spring.Red5ApplicationContext - Refreshing ApplicationContext 'red5.common': startup date [Wed Jul 04 11:28:20 GMT+08:00 2018]; parent: org.springframework.context.support.FileSystemXmlApplicationContext@7fc2413d
+2018-07-04 11:28:20,543 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [red5-common.xml]
+2018-07-04 11:28:20,659 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2018-07-04 11:28:20,671 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-07-04 11:28:20,671 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.0 created.
+2018-07-04 11:28:20,672 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2018-07-04 11:28:20,673 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'Red5_Scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 32 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-07-04 11:28:20,673 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'Red5_Scheduler' initialized from the specified file : 'D:/red5-server-1.0.10-M9/red5-server/conf/quartz.properties'
+2018-07-04 11:28:20,673 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.0
+2018-07-04 11:28:20,673 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler Red5_Scheduler_$_NON_CLUSTERED started.
+2018-07-04 11:28:21,131 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-07-04 11:28:21,134 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'schedulingService' has been autodetected for JMX exposure
+2018-07-04 11:28:21,134 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'clientBroadcastStream' has been autodetected for JMX exposure
+2018-07-04 11:28:21,282 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'schedulingService': registering with JMX server as MBean [org.red5.server:name=schedulingService,type=QuartzSchedulingService]
+2018-07-04 11:28:21,293 [main] INFO  o.r.spring.Red5ApplicationContext - setApplicationContext: org.springframework.context.support.FileSystemXmlApplicationContext@7fc2413d: startup date [Wed Jul 04 11:28:20 GMT+08:00 2018]; root of context hierarchy
+2018-07-04 11:28:21,294 [main] INFO  o.r.spring.Red5ApplicationContext - Red5ApplicationContext init
+2018-07-04 11:28:21,294 [main] INFO  o.r.spring.Red5ApplicationContext - Refreshing ApplicationContext 'red5.core': startup date [Wed Jul 04 11:28:21 GMT+08:00 2018]; parent: ApplicationContext 'red5.common'
+2018-07-04 11:28:21,294 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [red5-core.xml]
+2018-07-04 11:28:21,377 [main] INFO  o.r.s.net.rtmp.RTMPMinaTransport - RTMP will be bound to [0.0.0.0:1935]
+2018-07-04 11:28:21,377 [main] INFO  o.r.s.net.rtmp.RTMPMinaTransport - RTMP Mina Transport Settings
+Acceptor style: default I/O threads: 8
+TCP no-delay: true keep-alive: false
+2018-07-04 11:28:21,454 [main] INFO  o.r.s.net.rtmp.RTMPMinaTransport - Traffic class modification is disabled
+2018-07-04 11:28:21,454 [main] INFO  o.r.s.net.rtmp.RTMPMinaTransport - Send buffer size: 65536 recv buffer size: 65536 so linger: -1 traffic class: 0
+2018-07-04 11:28:21,480 [main] INFO  org.red5.server.ContextLoader - ContextLoader init
+2018-07-04 11:28:21,482 [main] INFO  org.red5.server.ContextLoader - Loading: default.context = ${red5.root}/webapps/red5-default.xml => D:/red5-server-1.0.10-M9/red5-server/webapps/red5-default.xml
+2018-07-04 11:28:21,482 [main] INFO  o.s.c.s.FileSystemXmlApplicationContext - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@46ab18da: startup date [Wed Jul 04 11:28:21 GMT+08:00 2018]; parent: ApplicationContext 'red5.common'
+2018-07-04 11:28:21,483 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from file [D:\red5-server-1.0.10-M9\red5-server\webapps\red5-default.xml]
+2018-07-04 11:28:21,551 [main] INFO  org.red5.server.Context - Setting parent bean factory as core
+2018-07-04 11:28:21,557 [main] INFO  o.red5.server.plugin.PluginLauncher - Loaded plugin: org.red5.net.websocket.WebSocketPlugin
+2018-07-04 11:28:21,558 [main] INFO  org.red5.server.tomcat.WarDeployer - War deployer service created
+2018-07-04 11:28:21,562 [main] INFO  org.red5.server.tomcat.WarDeployer - Starting WarDeployer
+2018-07-04 11:28:21,563 [main] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars without app start
+2018-07-04 11:28:21,564 [main] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 11:28:21,564 [main] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 11:28:21,591 [main] INFO  o.r.n.websocket.WebSocketTransport - WebSocket (ws) will be bound to [localhost:8081]
+2018-07-04 11:28:21,593 [main] INFO  o.r.n.websocket.WebSocketTransport - started  websocket transport
+2018-07-04 11:28:21,703 [main] INFO  org.red5.server.tomcat.TomcatLoader - Loading Tomcat
+2018-07-04 11:28:21,703 [main] INFO  org.red5.server.tomcat.TomcatLoader - Server root: D:/red5-server-1.0.10-M9/red5-server
+2018-07-04 11:28:21,703 [main] INFO  org.red5.server.tomcat.TomcatLoader - Config root: D:/red5-server-1.0.10-M9/red5-server/conf
+2018-07-04 11:28:21,730 [main] INFO  org.red5.server.tomcat.TomcatLoader - Application root: D:/red5-server-1.0.10-M9/red5-server/webapps
+2018-07-04 11:28:21,883 [main] INFO  org.red5.server.tomcat.TomcatLoader - Starting Tomcat servlet engine
+2018-07-04 11:28:22,010 [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\red5-server-1.0.10-M9\red5-server\\lib\native]
+2018-07-04 11:28:22,017 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-5080"]
+2018-07-04 11:28:22,033 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-07-04 11:28:22,055 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2018-07-04 11:28:22,056 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-07-04 11:28:22,166 [0.0.0.0-startStop-1] INFO  o.a.catalina.startup.ContextConfig - No global web.xml found
+2018-07-04 11:28:22,235 [0.0.0.0-startStop-1] INFO  o.a.c.c.C.[.[0.0.0.0].[/] - No Spring WebApplicationInitializer types detected on classpath
+2018-07-04 11:28:22,283 [0.0.0.0-startStop-1] INFO  o.a.c.c.C.[.[0.0.0.0].[/live] - No Spring WebApplicationInitializer types detected on classpath
+2018-07-04 11:28:22,337 [0.0.0.0-startStop-1] INFO  o.a.c.c.C.[.[0.0.0.0].[/chat] - No Spring WebApplicationInitializer types detected on classpath
+2018-07-04 11:28:22,390 [0.0.0.0-startStop-1] INFO  o.a.c.c.C.[.[0.0.0.0].[/red5] - No Spring WebApplicationInitializer types detected on classpath
+2018-07-04 11:28:22,393 [0.0.0.0-startStop-1] INFO  ROOT - Starting up context: red5
+2018-07-04 11:28:22,413 [0.0.0.0-startStop-1] INFO  o.a.c.c.C.[.[0.0.0.0].[/vod] - No Spring WebApplicationInitializer types detected on classpath
+2018-07-04 11:28:22,428 [0.0.0.0-startStop-1] INFO  o.a.c.c.C.[.[0.0.0.0].[/webapps] - No Spring WebApplicationInitializer types detected on classpath
+2018-07-04 11:28:22,444 [0.0.0.0-startStop-1] INFO  o.a.c.c.C.[.[0.0.0.0].[/installer] - No Spring WebApplicationInitializer types detected on classpath
+2018-07-04 11:28:22,498 [0.0.0.0-startStop-1] INFO  o.a.c.c.C.[.[0.0.0.0].[/oflaDemo] - No Spring WebApplicationInitializer types detected on classpath
+2018-07-04 11:28:22,509 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-5080"]
+2018-07-04 11:28:22,519 [main] INFO  org.red5.server.tomcat.TomcatLoader - Context initialized:  path: D:\red5-server-1.0.10-M9\red5-server\webapps\root\
+2018-07-04 11:28:22,520 [main] INFO  org.red5.server.tomcat.TomcatLoader - Context initialized: /live path: D:\red5-server-1.0.10-M9\red5-server\webapps\live\
+2018-07-04 11:28:22,520 [main] INFO  org.red5.server.tomcat.TomcatLoader - Context initialized: /chat path: D:\red5-server-1.0.10-M9\red5-server\webapps\chat\
+2018-07-04 11:28:22,520 [main] INFO  org.red5.server.tomcat.TomcatLoader - Context initialized: /red5 path: D:\red5-server-1.0.10-M9\red5-server\webapps\red5\
+2018-07-04 11:28:22,520 [main] INFO  org.red5.server.tomcat.TomcatLoader - Context initialized: /vod path: D:\red5-server-1.0.10-M9\red5-server\webapps\vod\
+2018-07-04 11:28:22,521 [main] INFO  org.red5.server.tomcat.TomcatLoader - Context initialized: /webapps path: D:\red5-server-1.0.10-M9\red5-server\webapps\webapps\
+2018-07-04 11:28:22,521 [main] INFO  org.red5.server.tomcat.TomcatLoader - Context initialized: /installer path: D:\red5-server-1.0.10-M9\red5-server\webapps\installer\
+2018-07-04 11:28:22,521 [main] INFO  org.red5.server.tomcat.TomcatLoader - Context initialized: /oflaDemo path: D:\red5-server-1.0.10-M9\red5-server\webapps\oflaDemo\
+2018-07-04 11:28:22,521 [main] INFO  org.red5.server.tomcat.TomcatLoader - Dedicated RTMPT server configuration was not specified
+2018-07-04 11:28:22,522 [main] INFO  o.r.server.service.ShutdownServer - JEE server was found: TomcatLoader [serviceEngineName=red5Engine]
+2018-07-04 11:28:22,533 [Loader:] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Jul 04 11:28:22 GMT+08:00 2018]; parent: org.springframework.context.support.FileSystemXmlApplicationContext@46ab18da
+2018-07-04 11:28:22,539 [Loader:] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/red5-web.xml]
+2018-07-04 11:28:22,604 [Loader:] INFO  org.red5.server.Context - Setting parent bean factory as core
+2018-07-04 11:28:22,623 [Loader:] INFO  org.red5.server.scope.WebScope - Set server [Server@48c5834dmap[[empty]]]
+2018-07-04 11:28:22,629 [Loader:] INFO  org.red5.server.scope.Scope - Scope null name reset to:  disallowed
+2018-07-04 11:28:22,629 [Loader:] INFO  org.red5.server.Server - Add mapping global: default host:  context: null
+2018-07-04 11:28:22,629 [Loader:] INFO  org.red5.server.scope.Scope - Invalid scope name, null is not allowed
+2018-07-04 11:28:22,629 [Loader:] WARN  org.red5.server.scope.Scope - Invalid scope rejected: Scope [name=null, path=/default, type=APPLICATION, autoStart=true, creationTime=1530674902605, depth=1, enabled=true, running=false]
+2018-07-04 11:28:22,630 [Loader:] WARN  org.red5.server.scope.Scope - Scope not added to parent
+2018-07-04 11:28:22,630 [Loader:] INFO  org.red5.server.scope.WebScope - Webscope already registered; remove the 'init-method' from your 'web.scope' bean to prevent this message in the future.
+2018-07-04 11:28:22,634 [Loader:/live] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Jul 04 11:28:22 GMT+08:00 2018]; parent: org.springframework.context.support.FileSystemXmlApplicationContext@46ab18da
+2018-07-04 11:28:22,635 [Loader:/live] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/red5-web.xml]
+2018-07-04 11:28:22,659 [Loader:/live] INFO  org.red5.server.Context - Setting parent bean factory as core
+2018-07-04 11:28:22,660 [Loader:/live] INFO  org.red5.server.scope.WebScope - Set server [Server@48c5834dmap['/' -> 'default']]
+2018-07-04 11:28:22,662 [Loader:/live] INFO  org.red5.server.Server - Add mapping global: default host:  context: live
+2018-07-04 11:28:22,673 [Loader:/chat] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Jul 04 11:28:22 GMT+08:00 2018]; parent: org.springframework.context.support.FileSystemXmlApplicationContext@46ab18da
+2018-07-04 11:28:22,674 [Loader:/chat] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/red5-web.xml]
+2018-07-04 11:28:22,696 [Loader:/chat] INFO  org.red5.server.Context - Setting parent bean factory as core
+2018-07-04 11:28:22,698 [Loader:/chat] INFO  org.red5.server.scope.WebScope - Set server [Server@48c5834dmap['/live' -> 'default', '/' -> 'default']]
+2018-07-04 11:28:22,698 [Loader:/chat] INFO  org.red5.server.Server - Add mapping global: default host:  context: chat
+2018-07-04 11:28:22,700 [Loader:/chat] INFO  o.r.net.websocket.WebSocketPlugin - WebSocketPlugin application: org.red5.demos.chat.Application@2518fba8
+2018-07-04 11:28:22,720 [Loader:/chat] INFO  o.red5.net.websocket.WebSocketScope - Application scope: Scope [name=chat, path=/default, type=APPLICATION, autoStart=true, creationTime=1530674902697, depth=1, enabled=true, running=false]
+2018-07-04 11:28:22,720 [Loader:/chat] INFO  o.red5.net.websocket.WebSocketScope - WebSocket app added: chat
+2018-07-04 11:28:22,720 [Loader:/chat] INFO  o.r.n.w.WebSocketScopeManager - addWebSocketScope: WebSocketScope [path=/chat, listeners=1, connections=0]
+2018-07-04 11:28:22,721 [Loader:/chat] INFO  o.red5.net.websocket.WebSocketScope - WebSocket scope added
+2018-07-04 11:28:22,726 [Loader:/red5] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Jul 04 11:28:22 GMT+08:00 2018]; parent: org.springframework.context.support.FileSystemXmlApplicationContext@46ab18da
+2018-07-04 11:28:22,727 [Loader:/red5] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/red5-web.xml]
+2018-07-04 11:28:22,744 [Loader:/red5] INFO  org.red5.server.Context - Setting parent bean factory as core
+2018-07-04 11:28:22,745 [Loader:/red5] INFO  org.red5.server.scope.WebScope - Set server [Server@48c5834dmap['/chat' -> 'default', '/live' -> 'default', '/' -> 'default']]
+2018-07-04 11:28:22,746 [Loader:/red5] INFO  org.red5.server.Server - Add mapping global: default host: localhost context: red5
+2018-07-04 11:28:22,746 [Loader:/red5] INFO  org.red5.server.Server - Add mapping global: default host: 127.0.0.1 context: red5
+2018-07-04 11:28:22,746 [Loader:/red5] INFO  org.red5.server.Server - Add mapping global: default host: 192.168.1.2 context: red5
+2018-07-04 11:28:22,749 [Loader:/red5] INFO  org.red5.server.scope.WebScope - Webscope already registered; remove the 'init-method' from your 'web.scope' bean to prevent this message in the future.
+2018-07-04 11:28:22,752 [Loader:/vod] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Jul 04 11:28:22 GMT+08:00 2018]; parent: org.springframework.context.support.FileSystemXmlApplicationContext@46ab18da
+2018-07-04 11:28:22,753 [Loader:/vod] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/red5-web.xml]
+2018-07-04 11:28:22,766 [Loader:/vod] INFO  org.red5.server.Context - Setting parent bean factory as core
+2018-07-04 11:28:22,767 [Loader:/vod] INFO  org.red5.server.scope.WebScope - Set server [Server@48c5834dmap['/chat' -> 'default', '127.0.0.1/red5' -> 'default', '192.168.1.2/red5' -> 'default', 'localhost/red5' -> 'default', '/live' -> 'default', '/' -> 'default']]
+2018-07-04 11:28:22,768 [Loader:/vod] INFO  org.red5.server.Server - Add mapping global: default host:  context: vod
+2018-07-04 11:28:22,774 [Loader:/webapps] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Jul 04 11:28:22 GMT+08:00 2018]; parent: org.springframework.context.support.FileSystemXmlApplicationContext@46ab18da
+2018-07-04 11:28:22,776 [Loader:/installer] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Jul 04 11:28:22 GMT+08:00 2018]; parent: org.springframework.context.support.FileSystemXmlApplicationContext@46ab18da
+2018-07-04 11:28:22,778 [Loader:/installer] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/red5-web.xml]
+2018-07-04 11:28:22,797 [Loader:/installer] INFO  org.red5.server.Context - Setting parent bean factory as core
+2018-07-04 11:28:22,797 [Loader:/installer] INFO  org.red5.server.scope.WebScope - Set server [Server@48c5834dmap['/chat' -> 'default', '127.0.0.1/red5' -> 'default', '192.168.1.2/red5' -> 'default', 'localhost/red5' -> 'default', '/live' -> 'default', '/vod' -> 'default', '/' -> 'default']]
+2018-07-04 11:28:22,798 [Loader:/installer] INFO  org.red5.server.Server - Add mapping global: default host: localhost context: installer
+2018-07-04 11:28:22,798 [Loader:/installer] INFO  org.red5.server.Server - Add mapping global: default host: localhost:5080 context: installer
+2018-07-04 11:28:22,801 [Loader:/installer] INFO  org.red5.server.service.Installer - Installer service created
+2018-07-04 11:28:22,806 [Loader:/oflaDemo] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Jul 04 11:28:22 GMT+08:00 2018]; parent: org.springframework.context.support.FileSystemXmlApplicationContext@46ab18da
+2018-07-04 11:28:22,807 [Loader:/oflaDemo] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/red5-web.xml]
+2018-07-04 11:28:22,821 [Loader:/oflaDemo] INFO  org.red5.server.Context - Setting parent bean factory as core
+2018-07-04 11:28:22,822 [Loader:/oflaDemo] INFO  org.red5.server.scope.WebScope - Set server [Server@48c5834dmap['/chat' -> 'default', '127.0.0.1/red5' -> 'default', '192.168.1.2/red5' -> 'default', 'localhost/red5' -> 'default', '/live' -> 'default', '/vod' -> 'default', '/' -> 'default', 'localhost:5080/installer' -> 'default', 'localhost/installer' -> 'default']]
+2018-07-04 11:28:22,823 [Loader:/oflaDemo] INFO  org.red5.server.Server - Add mapping global: default host:  context: oflaDemo
+2018-07-04 11:29:21,563 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 11:29:21,563 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 11:29:21,563 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,300 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,300 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,300 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,300 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,301 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,301 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,301 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,301 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,301 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,301 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,302 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,302 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,302 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,302 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,302 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,303 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,304 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,304 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,305 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,306 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,306 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,306 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,306 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,307 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,307 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,307 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,307 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,307 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,307 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,307 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,307 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,308 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,308 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,308 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:36:34,308 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:36:34,308 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:39:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:39:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:39:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:49:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:49:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:49:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:59:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 13:59:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 13:59:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:09:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 14:09:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:09:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:19:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 14:19:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:19:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:29:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 14:29:21,549 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:29:21,549 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:39:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 14:39:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:39:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:49:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 14:49:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:49:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:59:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 14:59:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 14:59:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:06:21,623 [NioProcessor-3] INFO  o.r.s.adapter.ApplicationAdapter - W3C x-category:session x-event:connect c-ip:0:0:0:0:0:0:0:1 c-client-id:1
+2018-07-04 15:06:21,702 [Red5_Scheduler_Worker-2] INFO  o.r.s.adapter.ApplicationAdapter - W3C x-category:stream x-event:play c-ip:0:0:0:0:0:0:0:1 x-sname:2ef100cd-4e0c-4e57-a7ef-9aac34641042
+2018-07-04 15:06:21,721 [Red5_Scheduler_Worker-4] INFO  o.r.s.adapter.ApplicationAdapter - W3C x-category:stream x-event:play c-ip:0:0:0:0:0:0:0:1 x-sname:2ef100cd-4e0c-4e57-a7ef-9aac34641042 x-name:red5.flv
+2018-07-04 15:06:23,008 [Red5_Scheduler_Worker-15] INFO  o.r.s.adapter.ApplicationAdapter - W3C x-category:stream x-event:stop c-ip: cs-bytes:-1 sc-bytes:-1 x-sname:2ef100cd-4e0c-4e57-a7ef-9aac34641042 x-file-length:1 x-file-size:27733 x-name:red5.flv
+2018-07-04 15:06:24,494 [NioProcessor-3] INFO  o.r.s.adapter.ApplicationAdapter - W3C x-category:session x-event:disconnect c-ip:0:0:0:0:0:0:0:1 c-client-id:1
+2018-07-04 15:06:24,504 [Red5_Scheduler_Worker-18] INFO  o.r.s.adapter.ApplicationAdapter - W3C x-category:stream x-event:stop c-ip:0:0:0:0:0:0:0:1 cs-bytes:3551 sc-bytes:31634 x-sname:2ef100cd-4e0c-4e57-a7ef-9aac34641042
+2018-07-04 15:09:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 15:09:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:09:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:16:08,536 [NioProcessor-4] WARN  o.red5.server.net.rtmp.RTMPHandler - Scope not found
+org.red5.server.exception.ScopeNotFoundException: Scope not found: SOSample in null
+	at org.red5.server.scope.ScopeResolver.resolveScope(ScopeResolver.java:112)
+	at org.red5.server.Context.resolveScope(Context.java:158)
+	at org.red5.server.net.rtmp.RTMPHandler.onCommand(RTMPHandler.java:325)
+	at org.red5.server.net.rtmp.BaseRTMPHandler.messageReceived(BaseRTMPHandler.java:116)
+	at org.red5.server.net.rtmp.RTMPConnection.handleMessageReceived(RTMPConnection.java:1438)
+	at org.red5.server.net.rtmp.RTMPMinaIoHandler.messageReceived(RTMPMinaIoHandler.java:173)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:997)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:437)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:256)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.red5.server.net.rtmpe.RTMPEIoFilter.messageReceived(RTMPEIoFilter.java:146)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:121)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:634)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:539)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$1200(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1242)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1231)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:683)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2018-07-04 15:16:08,538 [NioProcessor-4] INFO  o.red5.server.net.rtmp.RTMPHandler - Scope SOSample not found on localhost
+2018-07-04 15:16:08,541 [NioProcessor-4] INFO  o.r.s.net.rtmp.RTMPMinaConnection - Connection is closed: KUSIHFIMEW4VI
+2018-07-04 15:16:08,542 [NioProcessor-4] WARN  o.r.s.net.rtmp.RTMPMinaIoHandler - Connection was not found for KUSIHFIMEW4VI
+2018-07-04 15:16:10,356 [NioProcessor-5] WARN  o.red5.server.net.rtmp.RTMPHandler - Scope not found
+org.red5.server.exception.ScopeNotFoundException: Scope not found: SOSample in null
+	at org.red5.server.scope.ScopeResolver.resolveScope(ScopeResolver.java:112)
+	at org.red5.server.Context.resolveScope(Context.java:158)
+	at org.red5.server.net.rtmp.RTMPHandler.onCommand(RTMPHandler.java:325)
+	at org.red5.server.net.rtmp.BaseRTMPHandler.messageReceived(BaseRTMPHandler.java:116)
+	at org.red5.server.net.rtmp.RTMPConnection.handleMessageReceived(RTMPConnection.java:1438)
+	at org.red5.server.net.rtmp.RTMPMinaIoHandler.messageReceived(RTMPMinaIoHandler.java:173)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:997)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:437)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:256)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.red5.server.net.rtmpe.RTMPEIoFilter.messageReceived(RTMPEIoFilter.java:146)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:121)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:634)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:539)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$1200(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1242)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1231)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:683)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2018-07-04 15:16:10,356 [NioProcessor-5] INFO  o.red5.server.net.rtmp.RTMPHandler - Scope SOSample not found on localhost
+2018-07-04 15:16:10,357 [NioProcessor-5] INFO  o.r.s.net.rtmp.RTMPMinaConnection - Connection is closed: H4K8ZSCEPUSEF
+2018-07-04 15:16:10,357 [NioProcessor-5] WARN  o.r.s.net.rtmp.RTMPMinaIoHandler - Connection was not found for H4K8ZSCEPUSEF
+2018-07-04 15:16:11,212 [NioProcessor-6] WARN  o.red5.server.net.rtmp.RTMPHandler - Scope not found
+org.red5.server.exception.ScopeNotFoundException: Scope not found: SOSample in null
+	at org.red5.server.scope.ScopeResolver.resolveScope(ScopeResolver.java:112)
+	at org.red5.server.Context.resolveScope(Context.java:158)
+	at org.red5.server.net.rtmp.RTMPHandler.onCommand(RTMPHandler.java:325)
+	at org.red5.server.net.rtmp.BaseRTMPHandler.messageReceived(BaseRTMPHandler.java:116)
+	at org.red5.server.net.rtmp.RTMPConnection.handleMessageReceived(RTMPConnection.java:1438)
+	at org.red5.server.net.rtmp.RTMPMinaIoHandler.messageReceived(RTMPMinaIoHandler.java:173)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:997)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:437)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:256)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.red5.server.net.rtmpe.RTMPEIoFilter.messageReceived(RTMPEIoFilter.java:146)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:121)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:634)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:539)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$1200(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1242)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1231)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:683)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2018-07-04 15:16:11,212 [NioProcessor-6] INFO  o.red5.server.net.rtmp.RTMPHandler - Scope SOSample not found on localhost
+2018-07-04 15:16:11,213 [NioProcessor-6] INFO  o.r.s.net.rtmp.RTMPMinaConnection - Connection is closed: AHABLRFFVF2VE
+2018-07-04 15:16:11,213 [NioProcessor-6] WARN  o.r.s.net.rtmp.RTMPMinaIoHandler - Connection was not found for AHABLRFFVF2VE
+2018-07-04 15:16:24,834 [NioProcessor-7] WARN  o.red5.server.net.rtmp.RTMPHandler - Scope not found
+org.red5.server.exception.ScopeNotFoundException: Scope not found: bwcheck in null
+	at org.red5.server.scope.ScopeResolver.resolveScope(ScopeResolver.java:112)
+	at org.red5.server.Context.resolveScope(Context.java:158)
+	at org.red5.server.net.rtmp.RTMPHandler.onCommand(RTMPHandler.java:325)
+	at org.red5.server.net.rtmp.BaseRTMPHandler.messageReceived(BaseRTMPHandler.java:116)
+	at org.red5.server.net.rtmp.RTMPConnection.handleMessageReceived(RTMPConnection.java:1438)
+	at org.red5.server.net.rtmp.RTMPMinaIoHandler.messageReceived(RTMPMinaIoHandler.java:173)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:997)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:437)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:256)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.red5.server.net.rtmpe.RTMPEIoFilter.messageReceived(RTMPEIoFilter.java:146)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:48)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1114)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:121)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:641)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:634)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:539)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$1200(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1242)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1231)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:683)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2018-07-04 15:16:24,835 [NioProcessor-7] INFO  o.red5.server.net.rtmp.RTMPHandler - Scope bwcheck not found on localhost
+2018-07-04 15:16:24,836 [NioProcessor-7] INFO  o.r.s.net.rtmp.RTMPMinaConnection - Connection is closed: IWNWCCJ5BBW3R
+2018-07-04 15:16:24,837 [NioProcessor-7] WARN  o.r.s.net.rtmp.RTMPMinaIoHandler - Connection was not found for IWNWCCJ5BBW3R
+2018-07-04 15:19:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 15:19:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:19:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:29:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 15:29:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:29:21,549 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:39:21,547 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 15:39:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:39:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:49:21,548 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Deploy wars with app start
+2018-07-04 15:49:21,549 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install
+2018-07-04 15:49:21,549 [pool-4-thread-1] INFO  org.red5.server.tomcat.WarDeployer - Application chat already installed, please un-install before attempting another install

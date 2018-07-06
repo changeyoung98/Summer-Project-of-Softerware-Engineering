@@ -1,6 +1,8 @@
 import React from 'react'
 import {Input,Modal,Icon} from 'antd'
+
 import Register from './register'
+
 
 class Registerform extends React.Component{
     constructor(props){
@@ -57,9 +59,11 @@ class Registerform extends React.Component{
                                    onChange={this.handle2}
                                    prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}/>
                         </div>
+
                         <div className="input">
                             <p>No account ?    <Register/></p>
                         </div>
+
                     </Modal>
                 </div>
             </div>
