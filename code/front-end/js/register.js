@@ -1,56 +1,101 @@
-import React from 'react'
-import {Input,Modal,Icon,Button ,Row,Col} from 'antd'
+import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete,Modal } from 'antd';
+import React from "react";
+const FormItem = Form.Item;
+const Option = Select.Option;
+const AutoCompleteOption = AutoComplete.Option;
 
-class Register extends React.Component {
-    constructor(props) {
+const residences = [{
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{
+        value: 'hangzhou',
+        label: 'Hangzhou',
+        children: [{
+            value: 'xihu',
+            label: 'West Lake',
+        }],
+    }],
+}, {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{
+        value: 'nanjing',
+        label: 'Nanjing',
+        children: [{
+            value: 'zhonghuamen',
+            label: 'Zhong Hua Men',
+        }],
+    }],
+}];
+
+class RegistrationForm extends React.Component {
+    constructor(props){
         super(props);
         this.state = {
-            visible: false,
-            username: null,
-            password: null,
-            cpassword:null,
-            email:null,
-            phone:null,
+            confirmDirty: false,
+            autoCompleteResult: [],
+            visible:false,
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleConfirmBlur = this.handleConfirmBlur.bind(this);
+        this.compareToFirstPassword = this.compareToFirstPassword.bind(this);
+        this.validateToNextPassword = this.validateToNextPassword.bind(this);
+        this.handleWebsiteChange = this.handleWebsiteChange.bind(this);
+        this.showModal = this.showModal.bind(this);
         this.handleOk = this.handleOk.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
-        this.handle1 = this.handle1.bind(this);
-        this.handle2 = this.handle2.bind(this);
-        this.handle3 = this.handle3.bind(this);
-        this.handle4 = this.handle4.bind(this);
-        this.handle5 = this.handle5.bind(this);
-        this.showModal = this.showModal.bind(this);
+
+
     }
 
-    handle1(e) {
-        this.setState({
-            username: e.target.value,
-        })
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
     }
 
-    handle2(e) {
-        this.setState({
-            password: e.target.value,
-        })
+    handleConfirmBlur (e)  {
+        const value = e.target.value;
+        this.setState({ confirmDirty: this.state.confirmDirty || !!value });
     }
 
-    handle3(e) {
-        this.setState({
-            cpassword: e.target.value,
-        })
+    compareToFirstPassword  (rule, value, callback) {
+        const form = this.props.form;
+        if (value && value !== form.getFieldValue('password')) {
+            callback('Two passwords that you enter is inconsistent!');
+        } else {
+            callback();
+        }
     }
 
-    handle4(e) {
-        this.setState({
-            email: e.target.value,
-        })
+    validateToNextPassword (rule, value, callback)  {
+        const form = this.props.form;
+        if (value && this.state.confirmDirty) {
+            form.validateFields(['confirm'], { force: true });
+        }
+        callback();
     }
 
-    handle5(e) {
-        this.setState({
-            phone: e.target.value,
-        })
+    handleWebsiteChange (value) {
+        let autoCompleteResult;
+        if (!value) {
+            autoCompleteResult = [];
+        } else {
+            autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
+        }
+        this.setState({ autoCompleteResult });
     }
+
+    showModal() {
+        this.setState({
+            visible: true,
+        });
+    };
+
     handleOk(e) {
         this.setState({
             visible: false,
@@ -63,91 +108,143 @@ class Register extends React.Component {
         })
     }
 
-    showModal() {
-        this.setState({
-            visible: true,
-        });
-    };
-
     render() {
+        const {getFieldDecorator} = this.props.form;
+        const {autoCompleteResult} = this.state;
+
+        const formItemLayout = {
+            labelCol: {
+                xs: {span: 24},
+                sm: {span: 8},
+            },
+            wrapperCol: {
+                xs: {span: 24},
+                sm: {span: 16},
+            },
+        };
+        const tailFormItemLayout = {
+            wrapperCol: {
+                xs: {
+                    span: 24,
+                    offset: 0,
+                },
+                sm: {
+                    span: 16,
+                    offset: 8,
+                },
+            },
+        };
+        const prefixSelector = getFieldDecorator('prefix', {
+            initialValue: '86',
+        })(
+            <Select style={{width: 70}}>
+                <Option value="86">+86</Option>
+                <Option value="87">+87</Option>
+            </Select>
+        );
+
+        const websiteOptions = autoCompleteResult.map(website => (
+            <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
+        ));
+
         return (
             <div>
-                <div>
-                    <Button type="primary" onClick={this.showModal}>Sign Up</Button>
-                    <Modal
-                        title="Please login in first"
-                        visible={this.state.visible}
-                        okText="Login"
-                        cancelText="Cancel"
-                        onOk={this.handleOk}
-                        onCancel={this.handleCancel}
-                    >
-                        <div className="input">
-                            <Row>
-                                <Col>
-                                    <p>Username:</p>
-                                </Col>
-                                <Col>
-                                    <Input size="large" value={this.state.username}
-                                           onChange={this.handle1}
-                                           prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}/>
-                                </Col>
-                            </Row>
-                        </div>
-                        <div className="input">
-                            <Row>
-                                <Col>
-                                    <p>Password:</p>
-                                </Col>
-                                <Col>
-                                    <Input size="large" value={this.state.password}
-                                           onChange={this.handle2}
-                                           prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}/>
-                                </Col>
-                            </Row>
-                        </div>
-                        <div className="input">
-                            <Row>
-                                <Col>
-                                    <p>Confirm Password:</p>
-                                </Col>
-                                <Col>
-                                    <Input size="large" value={this.state.cpassword}
-                                           onChange={this.handle3}
-                                           prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}/>
-                                </Col>
-                            </Row>
-                        </div>
-                        <div className="input">
-                            <Row>
-                                <Col>
-                                    <p>E-email:</p>
-                                </Col>
-                                <Col>
-                                    <Input size="large" value={this.state.email}
-                                           onChange={this.handle4}
-                                           prefix={<Icon type="mail" style={{color: 'rgba(0,0,0,.25)'}}/>}/>
-                                </Col>
-                            </Row>
-                        </div>
-                        <div className="input">
-                            <Row>
-                                <Col>
-                                    <p>Phone:</p>
-                                </Col>
-                                <Col>
-                                    <Input size="large" value={this.state.phone}
-                                           onChange={this.handle5}
-                                           prefix={<Icon type="mobile" style={{color: 'rgba(0,0,0,.25)'}}/>}/>
-                                </Col>
-                            </Row>
-                        </div>
-                    </Modal>
-                </div>
+                <Button type="primary" onClick={this.showModal}>Register</Button>
+                <Modal
+                    title="Please register first"
+                    visible={this.state.visible}
+                    okText="Register"
+                    cancelText="Cancel"
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                >
+                    <Form onSubmit={this.handleSubmit}>
+                        <FormItem
+                            {...formItemLayout}
+                            label="E-mail"
+                        >
+                            {getFieldDecorator('email', {
+                                rules: [{
+                                    type: 'email', message: 'The input is not valid E-mail!',
+                                }, {
+                                    required: true, message: 'Please input your E-mail!',
+                                }],
+                            })(
+                                <Input />
+                            )}
+                        </FormItem>
+                        <FormItem
+                            {...formItemLayout}
+                            label="Password"
+                        >
+                            {getFieldDecorator('password', {
+                                rules: [{
+                                    required: true, message: 'Please input your password!',
+                                }, {
+                                    validator: this.validateToNextPassword,
+                                }],
+                            })(
+                                <Input type="password"/>
+                            )}
+                        </FormItem>
+                        <FormItem
+                            {...formItemLayout}
+                            label="Confirm Password"
+                        >
+                            {getFieldDecorator('confirm', {
+                                rules: [{
+                                    required: true, message: 'Please confirm your password!',
+                                }, {
+                                    validator: this.compareToFirstPassword,
+                                }],
+                            })(
+                                <Input type="password" onBlur={this.handleConfirmBlur}/>
+                            )}
+                        </FormItem>
+                        <FormItem
+                            {...formItemLayout}
+                            label={(
+                                <span>
+              Nickname&nbsp;
+                                    <Tooltip title="What do you want others to call you?">
+                <Icon type="question-circle-o"/>
+              </Tooltip>
+            </span>
+                            )}
+                        >
+                            {getFieldDecorator('nickname', {
+                                rules: [{required: true, message: 'Please input your nickname!', whitespace: true}],
+                            })(
+                                <Input />
+                            )}
+                        </FormItem>
+
+                        <FormItem
+                            {...formItemLayout}
+                            label="Phone Number"
+                        >
+                            {getFieldDecorator('phone', {
+                                rules: [{required: true, message: 'Please input your phone number!'}],
+                            })(
+                                <Input addonBefore={prefixSelector} style={{width: '100%'}}/>
+                            )}
+                        </FormItem>
+
+
+                        <FormItem {...tailFormItemLayout}>
+                            {getFieldDecorator('agreement', {
+                                valuePropName: 'checked',
+                            })(
+                                <Checkbox>I have read the <a href="">agreement</a></Checkbox>
+                            )}
+                        </FormItem>
+
+                    </Form>
+                </Modal>
             </div>
-        )
+        );
     }
 }
-
-export default Register;
+const WrappedRegistrationForm = Form.create()(RegistrationForm)
+export default WrappedRegistrationForm;
 

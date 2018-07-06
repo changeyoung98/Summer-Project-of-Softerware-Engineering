@@ -3,15 +3,17 @@ import { Layout, Menu, Icon ,Tabs,Button,Modal,Input,Breadcrumb} from 'antd';
 //import logo from './logo.svg';
 import { Link} from 'react-router';
 import Rater from './rate';
-import Register from './registerform'
-
-import Registers from'./register'
+import Login from './login'
 import Upload from './Upload'
-
+import WrappedRegistrationForm from './register'
+import Video from './Video'
 
 const TabPane = Tabs.TabPane;
 const {SubMenu} = Menu;
 const {Header, Content, Sider} = Layout;
+;
+
+
 
 class First extends React.Component {
     constructor(props){
@@ -63,7 +65,7 @@ class First extends React.Component {
                         defaultSelectedKeys={['3']}
                         style={{lineHeight: '64px'}}
                     >
-                        <Menu.Item key="1" style={{float: 'right'}}><Register/></Menu.Item>
+                        <Menu.Item key="1" style={{float: 'right'}}><Login/></Menu.Item>
                         <Menu.Item key="2" style={{float: 'right'}}>
                             <div>
                                 <Button type="primary" onClick={this.showModal}>Login</Button>
@@ -85,11 +87,9 @@ class First extends React.Component {
                                                onChange={this.handle2}
                                                prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}/>
                                     </div>
-
                                     <div className="input">
-                                        <p>No account ?      <Registers/></p>
+                                        <p>No account ?      <WrappedRegistrationForm /></p>
                                     </div>
-
                                 </Modal>
                             </div>
                         </Menu.Item>
@@ -136,11 +136,11 @@ class First extends React.Component {
                         <Content style={{background: '#fff', padding: 24, margin: 0, minHeight: 280}}>
                             <Tabs defaultActiveKey="1">
                                 <TabPane tab={<span><Icon type="apple"/>Home</span>} key="1">
+                                    <Video />
+
                                 </TabPane>
                                 <TabPane tab={<span><Icon type="android"/>Page 2</span>} key="2">
-
                                     <Upload/>
-
                                 </TabPane>
                                 <TabPane tab={<span><Icon type="android"/>Page 3</span>} key="3">
                                         )}
