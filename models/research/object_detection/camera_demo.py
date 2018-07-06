@@ -4,9 +4,8 @@ import numpy as np
 import os
 import six.moves.urllib as urllib
 import sys
-import tarfile
+import copy
 import tensorflow as tf
-import zipfile
 import cv2
 import time
 
@@ -62,11 +61,18 @@ with detection_graph.as_default():
     with tf.Session(graph=detection_graph) as sess:
         writer = tf.summary.FileWriter("logs/", sess.graph)
         sess.run(tf.global_variables_initializer())
-        fourcc = cv2.VideoWriter_fourcc(*'mpeg')
-        out = cv2.VideoWriter('video/video.mp4', fourcc, 10, (640, 480))
+        time_origin = time.clock()
+        time_count = 0
+        # fourcc = cv2.VideoWriter_fourcc(*'mpeg')
+        # out = cv2.VideoWriter('video/video.mp4', fourcc, 10, (640, 480))
         while (1):
             start = time.clock()
             ret, frame = cap.read()
+            time_present = time.clock()
+            if time_present - time_origin - time_count > 1:
+                cv2.imwrite("image/frame" + str(time_count) + ".jpg",frame)
+                time_count +=1
+            image_for_process = copy.deepcopy(frame)
             image_np = frame
             # the array based representation of the image will be used later in order to prepare the
             # result image with boxes and labels on it.
@@ -85,7 +91,7 @@ with detection_graph.as_default():
                 [boxes, scores, classes, num_detections],
                 feed_dict={image_tensor: image_np_expanded})
             # Visualization of the results of a detection.
-            vis_util.visualize_boxes_and_labels_on_image_array(
+            image,items = vis_util.visualize_boxes_and_labels_on_image_array(
                 image_np,
                 np.squeeze(boxes),
                 np.squeeze(classes).astype(np.int32),
@@ -93,10 +99,24 @@ with detection_graph.as_default():
                 category_index,
                 use_normalized_coordinates=True,
                 line_thickness=6)
+            windows = ["div1","div2","div3"]
+            count = 0
+            for box, color in items:
+                ymin, xmin, ymax, xmax = box
+                (left, right, top, bottom) = (xmin * 640, xmax * 640,
+                                              ymin * 480, ymax * 480)
+                print("left: ",left)
+                print("right: ",right)
+                print("top: ",top)
+                print("bottom: ",bottom)
+                count += 1
+                cropImg = image_for_process[round(top):round(bottom),round(left):round(right)]
+                cv2.imshow(windows[count%3],cropImg)
+                cv2.waitKey(1)
             end = time.clock()
             print('frame:', 1.0 / (end - start))
             # print 'frame:',time.time() - start
-            a = out.write(frame)
+            # a = out.write(frame)
             cv2.imshow("capture", image_np)
             # cv2.waitKey(1)
             if cv2.waitKey(1) & 0xFF == ord('c'):
