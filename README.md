@@ -1,6 +1,7 @@
 # Summer-Project-of-Software-Engineering
 # Group 8
 ## 开发记录
+### Week One
 2018-7-2
 - 建立github repo并各自建立分支，尝试pull request等功能。
 - 建立README
@@ -28,3 +29,8 @@
 - 实现连接另一台电脑摄像头的工作量简单化，即在html中写定好访问数据，直接输入固定网址即可得到另一台电脑的摄像头画面
 - 将此html修改为react的语法，实现从我们的前端项目中获得监控画面
 - 完善前端功能，实现登陆注册输入的自动检验
+
+### Week Two
+2018-7-9
+- 完善后端功能
+- 尝试实现前端的截屏等图片视频小功能
