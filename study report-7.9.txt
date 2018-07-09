@@ -1,0 +1,5 @@
+﻿1、The installation and configuration of Red5
+I installed jdk and configured environment variables on my own computer.Then I installed red5 and tested it whether it was installed successfully.
+url：https://blog.csdn.net/qq_27278957/article/details/52200151?locationNum=8
+2、The research of triplet-reid's embed.py and evaluate.py
+I successfully ran triplet-reid and its test demo.Then I tried to figure out how embed.py and evaluate.py works to test our own pictures and combine them into one py file if possible.
