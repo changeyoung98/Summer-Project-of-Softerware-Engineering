@@ -11,8 +11,8 @@ class Video extends React.Component{
         jwplayer("player").setup({
             flashplayer:'player.swf',
             image:"preview.jpg",
-            file:"stream15308",
-            streamer:"rtmp://192.168.1.100:5080/oflaDemo"
+             file:"stream15308",
+            streamer:"rtmp://localhost/oflaDemo"
         });
         console.log("haha");
     }
@@ -21,7 +21,11 @@ class Video extends React.Component{
         return(
             <div id="player">
                 <Button type="primary" onClick={this.getVideo}>Click</Button>
+
             </div>
+
+
+
         )
     }
 }

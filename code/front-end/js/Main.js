@@ -5,6 +5,7 @@ import { Link} from 'react-router';
 import Rater from './rate';
 import Login from './login'
 import Upload from './Upload'
+import Crop from './Cropper'
 import WrappedRegistrationForm from './register'
 import Video from './Video'
 
@@ -143,9 +144,8 @@ class First extends React.Component {
                                     <Upload/>
                                 </TabPane>
                                 <TabPane tab={<span><Icon type="android"/>Page 3</span>} key="3">
-                                        )}
-                                    />
                                     <Rater/>
+                                    <Crop/>
                                 </TabPane>
                             </Tabs>
 
