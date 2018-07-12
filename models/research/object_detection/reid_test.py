@@ -55,8 +55,11 @@ categories = label_map_util.convert_label_map_to_categories(label_map, max_num_c
 category_index = label_map_util.create_category_index(categories)
 
 count = 0
-csvFile = open('E://triplet-reid/data/test.csv', 'w', newline='')
-writer_csv = csv.writer(csvFile)
+query_count = 0
+test_csv = open('E://triplet-reid/data/test.csv', 'w', newline='')
+test_writer = csv.writer(test_csv)
+query_csv = open('E://triplet-reid/data/query.csv', 'w', newline='')
+query_writer = csv.writer(query_csv)
 cap = cv2.VideoCapture("video/test.mp4")
 with detection_graph.as_default():
     with tf.Session(graph=detection_graph) as sess:
@@ -68,11 +71,11 @@ with detection_graph.as_default():
             ret, image = cap.read()
             frame_num += 1
             image_np = image
-            if image is None:
-                continue
+            if not ret:
+                break
             else:
                 im = Image.fromarray(image_np.astype(np.uint8))
-            if frame_num % 30 == 1:
+            if frame_num % 60 == 1:
               # the array based representation of the image will be used later in order to prepare the
               # result image with boxes and labels on it.
               # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
@@ -110,11 +113,19 @@ with detection_graph.as_default():
                   region = (left, top, right, bottom)
                   cropImg = im.crop(region)
                   cropImg = cropImg.resize(IMAGE_SIZE, Image.ANTIALIAS)
-                  count += 1
-                  cropImg.save("e://reid-test/test/camera1_test" + str(count) + ".jpg")
-                  present_time = time.clock()
-                  name_str = "test/camera1_" + "test" + str(count) + ".jpg"
-                  writer_csv.writerow([int(present_time), name_str])
+                  if frame_num > 200:
+                      count += 1
+                      cropImg.save("e://reid-test/test/camera1_test" + str(count) + ".jpg")
+                      present_time = time.clock()
+                      name_str = "test/camera1_" + "test" + str(count) + ".jpg"
+                      test_writer.writerow([int(present_time), name_str])
+                  else:
+                      query_count += 1
+                      cropImg.save("e://reid-test/query/camera1_query" + str(query_count) + ".jpg")
+                      present_time = time.clock()
+                      name_str = "query/camera1_" + "query" + str(query_count) + ".jpg"
+                      query_writer.writerow([int(present_time), name_str])
 cap.release()
 cv2.destroyAllWindows()
-csvFile.close()
+test_csv.close()
+query_csv.close()
