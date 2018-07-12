@@ -51,7 +51,9 @@ export default class Crop extends React.Component {
         return (
             <div>
                 <div style={{ width: '100%' }}>
-                    <Input type="file" onChange={this.onChange} />
+                    <div class="file-box">
+                    <Input type="file" class="file-btn" onChange={this.onChange} />
+                    </div>
                     <Button type="primary" onClick={this.useDefaultImage}>Use default img</Button>
                     <br />
                     <br />
