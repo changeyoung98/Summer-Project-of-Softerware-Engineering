@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="layout" content="main">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.bootcss.com/html2canvas/0.4.1/html2canvas.js"></script>
+    <script>
+        //以下是截图代码
+        $(function(){
+            $("#btn").click(function(){
+                html2canvas($("#lala"), {
+                    height: $("#lala").outerWidth(),
+                    width: $("#lala").outerWidth()   ,
+                    onrendered: function(canvas) {
+                        //将canvas画布放大若干倍，然后盛放在较小的容器内，就显得不模糊了
+                        var timestamp = Date.parse(new Date());
+                        //把截取到的图片替换到a标签的路径下载
+                        $("#down1").attr('href',canvas.toDataURL());
+                        //下载下来的图片名字
+                        $("#down1").attr('download',timestamp + '.png') ;
+                        //document.body.appendChild(canvas);
+                    }
+                    //可以带上宽高截取你所需要的部分内容
+                });
+            });
+        });
+    </script>
+
+</head>
+<body tabindex="1" class="loadingInProgress" id="contbox">
+<div class="btn" id="btn">截取屏幕</div>
+<div><a id="down1" class="down" href="" download="downImg" >截图下载</a></div>
+<div class="container">
+    <video id='test'  width="500" height="400">
+
+        <source src="guardians2.mp4" type="video/mp4">
+    </video>
+</div>
+<div id="lala">
+    <canvas height="400" width="500" id="canvas2" style="border:1px solid #000;margin: 50px;"></canvas>
+
+    <canvas height="400" width="500" id="canvas1" style="border:1px solid #000;margin: 50px;display: none;"></canvas>
+</div>
+<button type="button" onclick="drawImg()">click</button>
+<button type="button" onclick="downImg()">down</button>
+<script>
+    var video = document.getElementById('test');
+    var canvas1 = document.getElementById('canvas1');
+    var canvas2 = document.getElementById('canvas2');
+    var context1 = canvas1.getContext('2d');
+    var context2 = canvas2.getContext('2d');
+    function drawVideo() {
+        context1.drawImage(video,0,0,video.width,video.height);
+    }
+    function drawImg() {
+        context2.drawImage(canvas1,0,0,canvas1.width,canvas1.height);
+
+    }
+    video.play();
+    setInterval(drawVideo,100);
+    setInterval(drawImg,5000);
+</script>
+</body>
+
+</html>

@@ -9,7 +9,6 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
-        <sourceRoots />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
@@ -26,6 +25,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="66ff8949-56d7-4cc5-89eb-9e9f2d3766a1" />
+          <unit-entry name="hibernate.cfg.xml" />
           <unit-entry name="sessionFactory" value="66ff8949-56d7-4cc5-89eb-9e9f2d3766a1" />
         </datasource-map>
         <naming-strategy-map />
