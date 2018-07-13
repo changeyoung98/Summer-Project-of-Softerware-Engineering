@@ -107,7 +107,6 @@ class Login extends React.Component {
             <div className="input">
               <p>No account ? <WrappedRegistrationForm/></p>
             </div>
-            <p>{this.state.result}</p>
           </Modal>
         </div>
       </div>
