@@ -7,6 +7,7 @@ import Login from './login'
 import Upload from './Upload'
 import WrappedRegistrationForm from './register'
 import Video from './Video'
+import Cropper from './Cropper'
 
 const TabPane = Tabs.TabPane;
 const {SubMenu} = Menu;
@@ -70,8 +71,7 @@ class First extends React.Component {
       type: "GET",
       url: 'http://localhost:8081/user/checkUser',
       data: {
-        username: this.state.username,
-        password: this.state.password,
+        url:this.state.url,
       },
       dataType: "json",
       success: function (data) {
@@ -87,7 +87,6 @@ class First extends React.Component {
       }.bind(this)
     });
   }
-
 
   render() {
     return (
@@ -183,15 +182,12 @@ class First extends React.Component {
               <Tabs defaultActiveKey="1">
                 <TabPane tab={<span><Icon type="apple"/>Home</span>} key="1">
                   <Video/>
-
                 </TabPane>
                 <TabPane tab={<span><Icon type="android"/>Page 2</span>} key="2">
                   <Upload/>
                 </TabPane>
                 <TabPane tab={<span><Icon type="android"/>Page 3</span>} key="3">
-                  )}
-                  />
-                  <Rater/>
+                  <Cropper/>
                 </TabPane>
               </Tabs>
 
