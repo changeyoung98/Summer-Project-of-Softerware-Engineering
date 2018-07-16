@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Icon ,Tabs,Button,Modal,Input,Breadcrumb} from 'antd';
+import { Layout, Menu, Icon ,Tabs, Button ,Modal,Input,Breadcrumb} from 'antd';
 //import logo from './logo.svg';
 import { Link} from 'react-router';
 import Rater from './rate';
@@ -8,7 +8,7 @@ import Upload from './Upload'
 import Crop from './Cropper'
 import WrappedRegistrationForm from './register'
 import Video from './Video'
-
+import Selection from './Select'
 const TabPane = Tabs.TabPane;
 const {SubMenu} = Menu;
 const {Header, Content, Sider} = Layout;
@@ -141,7 +141,7 @@ class First extends React.Component {
 
                                 </TabPane>
                                 <TabPane tab={<span><Icon type="android"/>Page 2</span>} key="2">
-                                    <Upload/>
+                                    <Selection />
                                 </TabPane>
                                 <TabPane tab={<span><Icon type="android"/>Page 3</span>} key="3">
                                     <Rater/>

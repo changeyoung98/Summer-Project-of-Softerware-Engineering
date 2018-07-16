@@ -19,7 +19,7 @@ class Video extends React.Component{
         console.log("haha");
     }
     getVideoh(){
-        jwplayer("player").setup({
+        jwplayer("playerh").setup({
             flashplayer:'player.swf',
             image:"preview.jpg",
             file:"./BladeRunner2049.flv",
@@ -33,10 +33,19 @@ class Video extends React.Component{
                     <area shape = "rect" coords="0,0,100,100" alt="camera1" onClick={this.getVideo} />
 
                 </map>
-            <Button type="primary" onClick={this.getVideoh}>Click</Button>
+
             <div id="player">
 
             </div>
+            <div style={{margin:10}}><Button >Start</Button></div>
+            <div >
+                <div style={{margin:10}}>
+                    <h3> History Video</h3>
+                </div>
+                <Button  onClick={this.getVideoh}>Click</Button>
+                <Button >Cut</Button>
+            </div>
+
             <div id="playerh">
 
             </div>

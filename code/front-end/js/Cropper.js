@@ -1,11 +1,10 @@
 import React from 'react';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
-import {Button,Input} from 'antd'
+import {Button,Input,Icon} from 'antd'
 /* global FileReader */
 
 const src = 'child.jpg';
-
 export default class Crop extends React.Component {
 
     constructor(props) {
@@ -17,6 +16,7 @@ export default class Crop extends React.Component {
         this.cropImage = this.cropImage.bind(this);
         this.onChange = this.onChange.bind(this);
         this.useDefaultImage = this.useDefaultImage.bind(this);
+        this.load = this.load.bind(this);
     }
 
     onChange(e) {
@@ -47,19 +47,26 @@ export default class Crop extends React.Component {
         this.setState({ src });
     }
 
+    load(){
+        document.getElementById('upfile').click()
+    }
+
     render() {
         return (
             <div>
                 <div style={{ width: '100%' }}>
-                    <div className="file-box">
-                    <Input type="file" className="file-btn" onChange={this.onChange} />
+                    <div className="fileInput left">
+                        <input type="file" name="upfile" id="upfile" className="upfile" onChange={this.onChange}/>
+                        <Button  onClick={this.load}><Icon type="folder-open" />Select File</Button>
                     </div>
-                    <Button type="primary" onClick={this.useDefaultImage}>Use default img</Button>
+                    <div>
+                    <Button onClick={this.useDefaultImage}>Use default img</Button>
+                    </div>
                     <br />
                     <br />
                     <Cropper
                         style={{ height: 400, width: '100%' }}
-                        aspectRatio={16 / 9}
+                       // aspectRatio={9 / 16}
                         preview=".img-preview"
                         guides={false}
                         src={this.state.src}
@@ -68,15 +75,22 @@ export default class Crop extends React.Component {
                 </div>
                 <div>
                     <div className="box" style={{ width: '50%', float: 'right' }}>
-                        <h1>Preview</h1>
-                        <div className="img-preview" style={{ width: '100%', float: 'left', height: 300 }} />
+                        <h1>
+                            <span>
+                            Preview
+                            </span>
+                           </h1>
+                        <div className="img-preview" style={{ width: '100%', float: 'left', height: 500 }} />
                     </div>
                     <div className="box" style={{ width: '50%', float: 'right' }}>
                         <h1>
+                            <div>
                             <span>Crop</span>
                             <Button onClick={this.cropImage} style={{ float: 'right' }}>
                                 Crop Image
                             </Button>
+                            <Button  style={{ float: 'right' }}><Icon type="upload" />Upload</Button>
+                            </div>
                         </h1>
                         <img style={{ width: '100%' }} src={this.state.cropResult} alt="cropped image" />
                     </div>
@@ -87,4 +101,5 @@ export default class Crop extends React.Component {
     }
 }/**
  * Created by hp on 2018/7/11.
+ *  <!--  <Input type="file" style={{opacity: 0}} onChange={this.onChange} /> -->
  */

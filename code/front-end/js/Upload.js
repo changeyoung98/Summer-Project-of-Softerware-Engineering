@@ -1,6 +1,6 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
-import Cropper from 'react-cropper'
+
 
 
 class Uploadform extends React.Component {
@@ -38,6 +38,7 @@ class Uploadform extends React.Component {
                         </div>
                 }
                 </div>
+
             </div>
         )
     }
