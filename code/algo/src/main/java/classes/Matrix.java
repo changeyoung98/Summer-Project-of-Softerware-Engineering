@@ -74,6 +74,15 @@ public class Matrix {
         return ret;
     }
 
+    public Map<Integer,Integer> getDist(int i){
+        Map<Integer,Integer> ret = new HashMap<Integer, Integer>();
+        ArrayList<Integer> neighbour = getNeighbour(i);
+        for(int temp : neighbour){
+            ret.put(temp,route[i][temp]);
+        }
+        return ret;
+    }
+
     public static void main(String args[]) {
 
         Matrix mat = new Matrix("D:\\Proj\\algo\\src\\main\\java\\classes\\route.txt",4);
