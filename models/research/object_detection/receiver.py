@@ -4,20 +4,28 @@ import sys
 import struct
 from argparse import ArgumentParser
 import signal
+import time
 
 def init():
     args = parser.parse_args()
-    ip = args.ip
-    port = int(args.port)
+    if not args.ip:
+        ip = '192.168.1.198'
+    else:
+        ip = args.ip
+    if not args.port:
+        port = 6666
+    else:
+        port = int(args.port)
     return ip,port
+
 
 def quit(signum,frame):
     print("Server exited with signal %s"%signum)
-    sys.exit()
+    os._exit(0)
+
 
 def socket_service():
-    ip,port = init()
-    signal.signal(signal.SIGINT,quit)
+    ip, port = init()
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -38,9 +46,31 @@ def socket_service():
                   ' --query_dataset data\query.csv'
                   ' --query_embeddings experiments\my_experiment\query.h5'
                   ' --gallery_dataset data/test.csv'
-                  ' --gallery_embeddings experiments\my_experiment/test.h5'
-                  ' --loop')
-        #os.system("python ")
+                  ' --gallery_embeddings experiments\my_experiment/test.h5')
+        # data = "Person_Found"
+        # sock.sendall(data.encode(encoding="utf-8"))
+        # sock.close()
+        f = open('ans/log.txt', 'r+')
+        ans = f.readline()
+        f.close()
+        if ans == "Not Found":
+            data = "Person_NotFound"
+            sock.sendall(data.encode(encoding="utf-8"))
+        else:
+            data = "Person_Found"
+            sock.sendall(data.encode(encoding="utf-8"))
+            filepath = 'E://triplet-reid/' + ans
+            fhead = struct.pack(b'128sl', bytes(os.path.basename(filepath), encoding='utf-8'), os.stat(filepath).st_size)
+            sock.send(fhead)
+            print('client filepath: {0}'.format(filepath))
+            fp = open(filepath, 'rb')
+            while 1:
+                data = fp.read(1024)
+                if not data:
+                    print('{0} file send over...'.format(filepath))
+                    break
+                sock.send(data)
+        sock.close()
     s.close()
 
 
@@ -67,7 +97,6 @@ def deal_data(sock, addr):
                     recvd_size = filesize
                 fp.write(data)
             fp.close()
-        sock.close()
         break
 
 
