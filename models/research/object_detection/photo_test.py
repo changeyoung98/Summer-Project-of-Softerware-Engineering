@@ -7,6 +7,7 @@ import sys
 import tensorflow as tf
 import time
 import csv
+import format
 from PIL import Image
 from argparse import ArgumentParser
 
@@ -22,6 +23,8 @@ parser = ArgumentParser(description='photo test.')
 parser.add_argument(
     '--path', required=True,
     help='Path to the image file.')
+
+
 
 # What model to download.
 MODEL_NAME = 'ssd_mobilenet_v1_coco_2017_11_17'
@@ -69,13 +72,16 @@ def load_image_into_numpy_array(image):
 
 def main():
     args = parser.parse_args()
-    query_csv = open('E://triplet-reid/data/query.csv', 'w', newline='')
-    query_writer = csv.writer(query_csv)
+    count = 0
+    scan_csv = open('E://triplet-reid/data/scan.csv', 'a+', newline='')
+    scan_writer = csv.writer(scan_csv)
     with detection_graph.as_default():
         with tf.Session(graph=detection_graph) as sess:
             writer = tf.summary.FileWriter("logs/", sess.graph)
             sess.run(tf.global_variables_initializer())
-            image= Image.open(args.path)
+            filename = args.path
+            t, camera_id, pic_id = format.parse_filename(filename)
+            image = Image.open('image/' + filename)
             image_np = load_image_into_numpy_array(image)
             # the array based representation of the image will be used later in order to prepare the
             # result image with boxes and labels on it.
@@ -114,18 +120,18 @@ def main():
                 region = (left, top, right, bottom)
                 cropImg = image.crop(region)
                 cropImg = cropImg.resize(IMAGE_SIZE, Image.ANTIALIAS)
-                cropImg.save("e://triplet-reid/reid-test/query/camera1_query1.jpg")
-                present_time = time.clock()
-                name_str = "query/camera1_query1.jpg"
-                query_writer.writerow([int(present_time), name_str])
-                query_writer.writerow([int(present_time), name_str])
-    query_csv.close()
-    os.system('cd /d e://triplet-reid &&'
-              ' python embed.py'
-              ' --experiment_root experiments/my_experiment'
-              ' --dataset data/query.csv --filename query.h5'
-              ' --flip_augment --aggregator mean'
-              ' --checkpoint checkpoint-25000 --quiet')
+                count += 1
+                fn = format.format_filename(t, camera_id, pic_id, count)
+                cropImg.save("e://triplet-reid/reid-test/scan/" + fn)
+                id, ret = format.format_csvpath("scan", fn )
+                scan_writer.writerow([id, ret])
+    scan_csv.close()
+    # os.system('cd /d e://triplet-reid &&'
+    #           ' python embed.py'
+    #           ' --experiment_root experiments/my_experiment'
+    #           ' --dataset data/scan.csv --filename scan.h5'
+    #           ' --flip_augment --aggregator mean'
+    #           ' --checkpoint checkpoint-25000 --quiet')
 
 
 if __name__ == '__main__':
