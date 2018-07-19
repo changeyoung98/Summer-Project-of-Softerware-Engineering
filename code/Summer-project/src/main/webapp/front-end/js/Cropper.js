@@ -18,6 +18,7 @@ export default class Crop extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.useDefaultImage = this.useDefaultImage.bind(this);
     this.upload = this.upload.bind(this);
+    this.load = this.load.bind(this);
   }
 
   onChange(e) {
@@ -78,6 +79,10 @@ export default class Crop extends React.Component {
     this.setState({src});
   }
 
+  load(){
+    document.getElementById('upfile').click();
+  }
+
   render() {
     let tem_result = [];
     if (this.state.result === -1) {
@@ -103,10 +108,9 @@ export default class Crop extends React.Component {
     return (
       <div>
         <div style={{width: '100%'}}>
-          <div>
-            <Input type="file" onChange={this.onChange}>
-              Select File
-            </Input>
+          <div className="fileInput left">
+            <input type="file" name="upfile" id="upfile" className="upfile" onChange={this.onChange}/>
+            <Button  onClick={this.load}><Icon type="folder-open" />Select File</Button>
           </div>
           <div>
             <Button onClick={this.useDefaultImage}>Use default img</Button>

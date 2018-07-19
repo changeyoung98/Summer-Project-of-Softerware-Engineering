@@ -1,54 +1,86 @@
 import React from 'react'
-import {Button} from 'antd'
-import Demo from './demo'
+import {Button,message} from 'antd'
+import Play from './Play'
+
+const warning =()=> {
+  message.warning('Waiting for selecting a camera');
+};
 
 class Video extends React.Component{
     constructor(props){
         super(props);
         this.state={
-          camera:0,
-          url:"rtmp://live.hkstv.hk.lxdns.com/live/hks",
+          url:null,
           history:[],
           currentTime:null,
-          historyUrl:null,
+          state:0,
+          camera:
+          [
+            {
+              instance: "rtmp://192.168.1.100:1935/oflaDemo/stream15308",
+              history:"http://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.com/691201536EE4912BF7E4F1E2C67B8119.mp4"
+            },
+            {
+              instance:"rtmp://192.168.1.127:1935/oflaDemo/stream15308",
+              history:"http://localhost:8081/video/guardians2.mp4"
+            }]
         };
         this.getVideo = this.getVideo.bind(this);
         this.getVideoh=this.getVideoh.bind(this);
         this.get = this.get.bind(this);
-        this.handleTime = this.handleTime.bind(this);
         this.gets = this.gets.bind(this);
-        this.handleUrl = this.handleUrl.bind(this);
     }
 
-    handleUrl(url){
-      this.setState({
-        historyUrl:url,
-      })
-    }
 
-    handleTime(time){
-      this.setState({
-        currentTime:time,
-      })
-    }
-
-    getVideo(){
+    getVideo(index){
         this.setState({
-          camera:1,
-        })
+          state:1,
+          url:this.state.camera[index],
+        });
     }
     getVideoh(){
       let tem = [];
-      tem.push(
-        <Demo handleTime={this.handleTime} handleUrl={this.handleUrl}/>
-      );
+      if(this.state.state===1) {
+        tem.push(
+          <video id="video1" className="video-js" controls preload="auto" width="320" height="240" data-setup="{}">
+            <source src={this.state.url.history} type="video/mp4"/>
+          </video>
+        );
+      }
+      else{
+        warning();
+      }
       this.setState({
         history:tem,
       })
     }
 
     gets(){
-      let time = this.state.currentTime;
+      if(this.state.state===1&&this.state.history!==[]) {
+        var myPlayer = document.getElementById('video1');
+        let time = myPlayer.currentTime;
+        this.setState({
+          currentTime: time,
+        }, () => {
+          $.ajax({
+            type: "GET",
+            url: 'http://localhost:8081/videos/cut',
+            data: {
+              url: this.state.url.history,
+              time: this.state.currentTime,
+            },
+            dataType: "json",
+            success: function (data) {
+              console.log(this.state.currentTime);
+              console.log("success");
+            }.bind(this)
+          });
+        });
+      }
+      else{
+        warning();
+      }
+      /*let time = this.state.currentTime;
       let result = time.split(":");
       result = result.reverse();
       let sec = 0;
@@ -68,23 +100,28 @@ class Video extends React.Component{
           console.log(secs);
           console.log("success");
         }.bind(this)
-      });
+      });*/
     }
 
   get(){
-    let tem = 0;
-    $.ajax({
-      type: "GET",
-      url: 'http://localhost:8081/video/Icut',
-      data: {
-        url:this.state.url,
-      },
-      dataType: "json",
-      success: function (data) {
-        tem = JSON.parse(data);
-        console.log("success");
-      }.bind(this)
-    });
+      if(this.state.state===1) {
+        let tem = 0;
+        $.ajax({
+          type: "GET",
+          url: 'http://localhost:8081/videos/Icut',
+          data: {
+            url: this.state.url.instance,
+          },
+          dataType: "json",
+          success: function (data) {
+            tem = JSON.parse(data);
+            console.log("success");
+          }.bind(this)
+        });
+      }
+      else{
+        warning();
+      }
   }
 
   render(){
@@ -92,7 +129,7 @@ class Video extends React.Component{
         <div>
             <img src="./floor1.jpg"  height="300" width="500" align="center" useMap="#mymap"/>
                 <map name="mymap">
-                    <area shape = "rect" coords="0,0,100,100" alt="camera1" onClick={this.getVideo} />
+                    <area shape = "rect" coords="0,0,100,100" alt="camera1" onClick={()=>{this.getVideo(1)}} />
 
                 </map>
 
@@ -100,13 +137,8 @@ class Video extends React.Component{
               <div><Button type="primary" onClick={this.get}>Start</Button></div>
               <div>
                 {
-                  this.state.camera===0?null:
-                    <iframe
-                      src="/front-end/demo.html"
-                      width="320px"
-                      height="240px"
-                      allowFullScreen="true"
-                    >nice</iframe>
+                  this.state.state=== 0 ? null:
+                    <Play url={this.state.url.instance}/>
                 }
               </div>
             </div>
