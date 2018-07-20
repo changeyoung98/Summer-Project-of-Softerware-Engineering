@@ -8,10 +8,17 @@ import Util.test;
 @RequestMapping("/find")
 public class Find {
 
-  @RequestMapping(value="/user")
+  @RequestMapping(value="/history")
   @ResponseBody
-  public int find(){
+  public String find_history(){
     test test = new test();
-    return test.find_person();
+    return test.find_person("none");
+  }
+
+  @RequestMapping(value="/instance")
+  @ResponseBody
+  public String find_instance(){
+    test test=new test();
+    return test.find_instance("none");
   }
 }

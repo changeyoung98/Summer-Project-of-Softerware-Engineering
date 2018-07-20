@@ -1,24 +1,32 @@
 import React from 'react';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
-import {Button,Input,Icon} from 'antd'
+import {Button,Input,Icon ,Modal} from 'antd'
 /* global FileReader */
 
-const src = 'child.jpg';
-export default class Crop extends React.Component {
+const src = "child.jpg";
 
+export default class Crop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       src,
       cropResult: null,
       result: -1,
+      visible:false,
     };
     this.cropImage = this.cropImage.bind(this);
     this.onChange = this.onChange.bind(this);
     this.useDefaultImage = this.useDefaultImage.bind(this);
     this.upload = this.upload.bind(this);
     this.load = this.load.bind(this);
+    this.handleModal = this.handleModal.bind(this);
+  }
+
+  handleModal(){
+    this.setState({
+      visible:false,
+    })
   }
 
   onChange(e) {
@@ -62,15 +70,19 @@ export default class Crop extends React.Component {
   }
 
   upload() {
+    this.setState({
+      visible:true,
+    });
     $.ajax({
       type: "GET",
-      url: 'http://localhost:8081/find/user',
+      url: 'http://localhost:8081/find/history',
       dataType: "json",
       success: function (data) {
         this.setState({
           result: JSON.parse(data),
         });
         console.log("success");
+        console.log(data);
       }.bind(this)
     });
   }
@@ -79,7 +91,7 @@ export default class Crop extends React.Component {
     this.setState({src});
   }
 
-  load(){
+  load() {
     document.getElementById('upfile').click();
   }
 
@@ -93,6 +105,7 @@ export default class Crop extends React.Component {
         </div>)
     }
     else if (this.state.result === 1) {
+      setTimeout(2000);
       tem_result.push(
         <div>
           <img src="http://localhost:8081/recv/recv.jpg"/>
@@ -107,10 +120,20 @@ export default class Crop extends React.Component {
     }
     return (
       <div>
+        <Modal
+          title="——RESULT——"
+          visible={this.state.visible}
+          onOk={this.handleModal}
+          onCancel={this.handleModal}
+        >
+          <div>
+            {tem_result}
+          </div>
+        </Modal>
         <div style={{width: '100%'}}>
           <div className="fileInput left">
             <input type="file" name="upfile" id="upfile" className="upfile" onChange={this.onChange}/>
-            <Button  onClick={this.load}><Icon type="folder-open" />Select File</Button>
+            <Button onClick={this.load}><Icon type="folder-open"/>Select File</Button>
           </div>
           <div>
             <Button onClick={this.useDefaultImage}>Use default img</Button>
@@ -138,21 +161,18 @@ export default class Crop extends React.Component {
           </div>
           <div className="box" style={{width: '50%', float: 'right'}}>
             <h1>
-              <span>Crop</span>
               <div>
+                <span>Crop</span>
                 <Button onClick={this.cropImage} style={{float: 'right'}}>
                   Crop Image
                 </Button>
-                <Button style={{float: 'right'}}><Icon type="upload" onClick={this.upload}/>Upload</Button>
+                <Button onClick={this.upload} style={{float: 'right'}}><Icon type="upload"/>Upload</Button>
               </div>
             </h1>
-            <img style={{width: '50%'}} src={this.state.cropResult} alt="cropped image"/>
+            <img style={{height: 500}} src={this.state.cropResult} alt="cropped image"/>
           </div>
         </div>
         <br style={{clear: 'both'}}/>
-        <div>
-          {tem_result}
-        </div>
       </div>
     );
   }

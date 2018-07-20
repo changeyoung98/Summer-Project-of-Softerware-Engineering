@@ -6,6 +6,13 @@ const warning =()=> {
   message.warning('Waiting for selecting a camera');
 };
 
+const warning1 = () =>{
+  message.warning('Please wait for a while')
+};
+const success = ()=>{
+  message.success("Cut the picture and save it !")
+};
+
 class Video extends React.Component{
     constructor(props){
         super(props);
@@ -22,7 +29,7 @@ class Video extends React.Component{
             },
             {
               instance:"rtmp://192.168.1.127:1935/oflaDemo/stream15308",
-              history:"http://localhost:8081/video/guardians2.mp4"
+              history:"http://localhost:8081/video/test.mp4"
             }]
         };
         this.getVideo = this.getVideo.bind(this);
@@ -57,6 +64,7 @@ class Video extends React.Component{
 
     gets(){
       if(this.state.state===1&&this.state.history!==[]) {
+        warning1();
         var myPlayer = document.getElementById('video1');
         let time = myPlayer.currentTime;
         this.setState({
@@ -73,9 +81,13 @@ class Video extends React.Component{
             success: function (data) {
               console.log(this.state.currentTime);
               console.log("success");
+              if(JSON.parse(data)===1){
+                success();
+              }
             }.bind(this)
           });
         });
+        this.props.handleTime(this.state.currentTime);
       }
       else{
         warning();

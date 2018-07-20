@@ -2,12 +2,12 @@ import React from 'react';
 import { Layout, Menu, Icon ,Tabs,Button,Modal,Input,Breadcrumb} from 'antd';
 //import logo from './logo.svg';
 import { Link} from 'react-router';
-import Rater from './rate';
 import Login from './login'
 import Upload from './Upload'
 import WrappedRegistrationForm from './register'
 import Video from './Video'
 import Cropper from './Cropper'
+import Select from './Select'
 
 const TabPane = Tabs.TabPane;
 const {SubMenu} = Menu;
@@ -26,6 +26,7 @@ class First extends React.Component {
       username: null,
       password: null,
       result: -1,
+      time:null,
     };
     this.handleOk = this.handleOk.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -33,6 +34,13 @@ class First extends React.Component {
     this.handle2 = this.handle2.bind(this);
     this.showModal = this.showModal.bind(this);
     this.login = this.login.bind(this);
+    this.handleTime = this.handleTime.bind(this);
+  }
+
+  handleTime(time){
+    this.setState({
+      time:time,
+    })
   }
 
   handle1(e) {
@@ -181,13 +189,13 @@ class First extends React.Component {
             <Content style={{background: '#fff', padding: 24, margin: 0, minHeight: 280}}>
               <Tabs defaultActiveKey="1">
                 <TabPane tab={<span><Icon type="apple"/>Home</span>} key="1">
-                  <Video/>
+                  <Video handleTime={this.handleTime}/>
                 </TabPane>
                 <TabPane tab={<span><Icon type="android"/>Page 2</span>} key="2">
-                  <Upload/>
+                  <Select/>
                 </TabPane>
                 <TabPane tab={<span><Icon type="android"/>Page 3</span>} key="3">
-                  <Cropper/>
+                  <Cropper time={this.state.time}/>
                 </TabPane>
               </Tabs>
 

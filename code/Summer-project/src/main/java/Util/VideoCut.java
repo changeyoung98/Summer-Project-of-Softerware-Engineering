@@ -1,16 +1,8 @@
 package Util;
 
-import java.io.*;
-import java.net.URI;
-import java.net.URL;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.List;
-
-import javax.servlet.ServletContext;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import static java.lang.Thread.sleep;
 
 /*
 截取直播视频中的画面
@@ -40,18 +32,19 @@ public class VideoCut {
   public int cut(String url, String time) {
     final String FFMPEG_PATH = "c:\\ffmpeg\\bin\\ffmpeg.exe";
 
-    String path = url;
-    String out = "C:\\Users\\联想\\demo.jpg";
+    String out = "C:\\Users\\Public\\Image\\Tem\\";
+    String name = time+".jpg";
+    out += name;
 
     List<String> commands = new java.util.ArrayList<String>();
     commands.add(FFMPEG_PATH);
+    commands.add("-ss");
+    commands.add(time);
     commands.add("-i");
-    commands.add(path);
+    commands.add(url);
     commands.add("-y");
     commands.add("-f");
     commands.add("image2");
-    commands.add("-ss");
-    commands.add("8");
     commands.add("-t");
     commands.add("0.001");
     commands.add("-s");
@@ -62,6 +55,13 @@ public class VideoCut {
       ProcessBuilder builder = new ProcessBuilder();
       builder.command(commands);
       builder.start();
+      boolean exist = false;
+      while(!exist){
+        File file=new File(out);
+        if(file.exists()){
+          exist = true;
+        }
+      }
       System.out.println("end");
       return 1;
     } catch (Exception e) {
@@ -80,9 +80,9 @@ public class VideoCut {
     int tem = 1;
     try {
       while (tem <= 30) {
-        String time=String.valueOf(tem);
-        String out = "C:\\Users\\联想\\image\\";
-        out = out+time+".jpg";
+        String time = String.valueOf(tem);
+        String out = "C:\\Users\\Public\\Image\\Instance\\";
+        out = out + time + ".jpg";
         List<String> commands = new java.util.ArrayList<String>();
         commands.add(FFMPEG_PATH);
         commands.add("-probesize");
@@ -97,7 +97,7 @@ public class VideoCut {
         commands.add("-f");
         commands.add("image2");
         commands.add("-s");
-        commands.add("720X640");
+        commands.add("640X640");
         commands.add(out);
         System.out.println(out);
 
@@ -107,6 +107,48 @@ public class VideoCut {
         System.out.println("complete");
         tem++;
         Thread.sleep(500);
+      }
+      return 1;
+    } catch (Exception e) {
+      e.printStackTrace();
+      return 0;
+    }
+  }
+
+  public int record(String url) {
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String now_time = String.valueOf(df.format(System.currentTimeMillis()));
+    final String FFMPEG_PATH = "c:\\ffmpeg\\bin\\ffmpeg.exe";
+
+    String path = url;
+
+    int tem = 1;
+    try {
+      while (tem <= 3) {
+        String time=String.valueOf(tem);
+        String out = "C:\\Users\\Public\\Image\\Video\\";
+        out = out+time+".flv";
+        List<String> commands = new java.util.ArrayList<String>();
+        commands.add(FFMPEG_PATH);
+        commands.add("-y");
+        commands.add("-i");
+        commands.add(path);
+        commands.add("-vcodec");
+        commands.add("-copy");
+        commands.add("-acodec");
+        commands.add("-copy");
+        commands.add("-t");
+        commands.add("0:1:0");
+        commands.add("-f");
+        commands.add("-flv");
+        commands.add(out);
+        System.out.println(out);
+
+        ProcessBuilder builder = new ProcessBuilder();
+        builder.command(commands);
+        builder.start();
+        System.out.println("complete");
+        tem++;
       }
       return 1;
     } catch (Exception e) {
