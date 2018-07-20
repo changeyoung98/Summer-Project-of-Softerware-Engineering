@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1532070935834" clover="3.2.0">
-  <project timestamp="1532070935834" name="All files">
-    <metrics statements="77" coveredstatements="39" conditionals="20" coveredconditionals="0" methods="27" coveredmethods="9" elements="124" coveredelements="48" complexity="0" loc="77" ncloc="77" packages="1" files="3" classes="3">
+<coverage generated="1532076756999" clover="3.2.0">
+  <project timestamp="1532076756999" name="All files">
+    <metrics statements="75" coveredstatements="38" conditionals="20" coveredconditionals="0" methods="26" coveredmethods="9" elements="121" coveredelements="47" complexity="0" loc="75" ncloc="75" packages="1" files="3" classes="3">
       <file name="Cropper.js" path="C:\Users\hp\Desktop\front-end\js\Cropper.js">
         <metrics statements="23" coveredstatements="8" conditionals="6" coveredconditionals="0" methods="8" coveredmethods="2"/>
         <line num="7" count="1" type="stmt"/>
@@ -43,7 +43,7 @@
         <line num="39" count="3" type="stmt"/>
       </file>
       <file name="register.js" path="C:\Users\hp\Desktop\front-end\js\register.js">
-        <metrics statements="43" coveredstatements="22" conditionals="14" coveredconditionals="0" methods="13" coveredmethods="3"/>
+        <metrics statements="41" coveredstatements="21" conditionals="14" coveredconditionals="0" methods="12" coveredmethods="3"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
@@ -83,8 +83,6 @@
         <line num="92" count="2" type="stmt"/>
         <line num="102" count="2" type="stmt"/>
         <line num="114" count="2" type="stmt"/>
-        <line num="123" count="2" type="stmt"/>
-        <line num="124" count="0" type="stmt"/>
         <line num="127" count="2" type="stmt"/>
         <line num="225" count="2" type="stmt"/>
       </file>

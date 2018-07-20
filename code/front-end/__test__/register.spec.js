@@ -4,7 +4,7 @@
 import React from 'react'
 import WrappedRegistrationForm from '../js/register'
 import { Form, Input, Tooltip, Icon, Select, Checkbox, Button, AutoComplete,Modal } from 'antd';
-import { shallow, configure ,mount} from 'enzyme'
+import { shallow,render, configure ,mount} from 'enzyme'
 import  Adapter from 'enzyme-adapter-react-14';
 import ReactTestUtils from 'react-addons-test-utils'
 //import ReactTestUtils from'react-dom/test-utils';
@@ -70,13 +70,16 @@ describe('WrappedRegistrationForm', () => {
         buttonDom.simulate('click');
         expect(props.showModal).toBeCalled;
         expect(wrapper.find('visible').exists());
-      //  wrapper.find('#first').first().simulate('click');
     });
     it('Form Component should click', () => {
-        
-        const formDom=wrapper.find('Form').first();
+        const handleSubmit=jest.fn((e)=>{
+        });
+       const wrapperS = mount(
+            <Form onSubmit={handleSubmit}/>
+        );
+        const formDom=wrapperS.find('Form').at(0);
         formDom.simulate('submit');
-        expect(props.handleSubmit).toBeCalled;
+        expect(handleSubmit).toBeCalled;
     });
 
 
