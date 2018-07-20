@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cropper render basic use 1`] = `
+<div>
+  <div
+    style="width:100%;"
+  >
+    <div
+      class="fileInput left"
+    >
+      <input
+        class="upfile"
+        id="upfile"
+        name="upfile"
+        type="file"
+      />
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <i
+          class="anticon anticon-folder-open"
+        />
+        <span>
+          Select File
+        </span>
+      </button>
+    </div>
+    <div>
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Use default img
+        </span>
+      </button>
+    </div>
+    <br />
+    <br />
+    <div
+      style="height:400px;width:100%;"
+    >
+      <img
+        alt="picture"
+        src="child.jpg"
+        style="opacity:0;"
+      />
+    </div>
+  </div>
+  <div>
+    <div
+      class="box"
+      style="width:50%;float:right;"
+    >
+      <h1>
+        <span>
+          Preview
+        </span>
+      </h1>
+      <div
+        class="img-preview"
+        style="width:100%;float:left;height:500px;"
+      />
+    </div>
+    <div
+      class="box"
+      style="width:50%;float:right;"
+    >
+      <h1>
+        <div>
+          <span>
+            Crop
+          </span>
+          <button
+            class="ant-btn"
+            style="float:right;"
+            type="button"
+          >
+            <span>
+              Crop Image
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            style="float:right;"
+            type="button"
+          >
+            <i
+              class="anticon anticon-upload"
+            />
+            <span>
+              Upload
+            </span>
+          </button>
+        </div>
+      </h1>
+      <img
+        alt="cropped image"
+        style="width:100%;"
+      />
+    </div>
+  </div>
+  <br
+    style="clear:both;"
+  />
+</div>
+`;

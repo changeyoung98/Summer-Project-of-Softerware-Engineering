@@ -2,7 +2,7 @@ import React from 'react'
 import {Input,Modal,Icon} from 'antd'
 import WrappedRegistrationForm from '../js/register'
 import Login from '../js/login'
-import { shallow, configure } from 'enzyme'
+import { shallow, configure,mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-14';
 
 configure({ adapter: new Adapter() });
@@ -41,8 +41,27 @@ describe('Login', () => {
     it('Login Component should render', () => {
         //.find(selector) 是 Enzyme shallow Rendering 提供的语法, 用于查找节点
         // 详细用法见 Enzyme 文档 http://airbnb.io/enzyme/docs/api/shallow.html
-        expect(wrapper.find('Input').exists());
+       expect(wrapper.find('Input').length).toBe(2);
         expect(wrapper.find('Modal').exists());
         expect(wrapper.find('WrappedRegistrationForm').exists());
-    })
+    });
+    it('First Input Component should change', () => {
+        const mockEvent={
+            target:{
+                value:"Amy"
+            }
+        }
+       wrapper.find('Input').first().simulate('change',mockEvent);
+        expect(props.handle1).toBeCalled;
+    });
+    it('Last Input Component should change', () => {
+        const mockEvent={
+            target:{
+                value:"123456"
+            }
+        }
+        wrapper.find('Input').last().simulate('change',mockEvent);
+        expect(props.handle2).toBeCalled;
+    });
+
 })
