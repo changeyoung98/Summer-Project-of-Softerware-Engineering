@@ -20,6 +20,7 @@ class Selection extends React.Component{
 render(){
         return(
             <div>
+            <div style={{  float: 'left'}}>
                 <h4>Sex</h4>
             <Select
                 showSearch
@@ -115,6 +116,10 @@ render(){
                     <Option value="purple">Purple</Option>
                     <Option value="pink">Pink</Option>
                 </Select>
+            </div>
+            <div style={{  float: 'right'}}>
+                <img style={{ width: '50%' }} src="child.jpg" alt="cropped image" />
+            </div>
             </div>
         )
 }

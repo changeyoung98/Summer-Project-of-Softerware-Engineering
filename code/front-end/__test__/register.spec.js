@@ -76,20 +76,3 @@ describe('WrappedRegistrationForm', () => {
     });
 
 });
-/*describe('Input',()=>{
-    const props ={
-        state:{
-            confirmDirty: false,
-            autoCompleteResult: [],
-            visible:false,
-        },
-        handleConfirmBlur:jest.fn((e) => {
-        }),
-    };
-    const wrapperInput=render(<WrappedRegistrationForm />);
-    it('Input Component should blur', () => {
-        const inputDom=wrapperInput.find('Input').at(1);
-        inputDom.simulate('blur');
-        expect(props.handleConfirmBlur).toBeCalled;
-    });
-})*/

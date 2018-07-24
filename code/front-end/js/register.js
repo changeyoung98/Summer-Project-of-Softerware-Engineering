@@ -1,32 +1,9 @@
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete,Modal } from 'antd';
+import { Form, Input, Tooltip, Icon, Select, Checkbox, Button, AutoComplete,Modal } from 'antd';
 import React from "react";
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 
-const residences = [{
-    value: 'zhejiang',
-    label: 'Zhejiang',
-    children: [{
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [{
-            value: 'xihu',
-            label: 'West Lake',
-        }],
-    }],
-}, {
-    value: 'jiangsu',
-    label: 'Jiangsu',
-    children: [{
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [{
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-        }],
-    }],
-}];
 
 class RegistrationForm extends React.Component {
     constructor(props){
@@ -143,13 +120,13 @@ class RegistrationForm extends React.Component {
             </Select>
         );
 
-        const websiteOptions = autoCompleteResult.map(website => (
+     /*  const websiteOptions = autoCompleteResult.map(website => (
             <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-        ));
+        ));*/
 
         return (
             <div>
-                <Button type="primary" onClick={this.showModal}>Register</Button>
+                <Button type="primary" id="first"  onClick={this.showModal}>Register</Button>
                 <Modal
                     title="Please register first"
                     visible={this.state.visible}
