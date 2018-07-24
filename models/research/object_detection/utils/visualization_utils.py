@@ -32,7 +32,7 @@ import PIL.ImageFont as ImageFont
 import six
 import tensorflow as tf
 
-from object_detection.core import standard_fields as fields
+from core import standard_fields as fields
 
 
 _TITLE_LEFT_MARGIN = 10
@@ -92,7 +92,7 @@ def encode_image_array_as_png_str(image):
   output.close()
   return png_string
 
-
+# useful
 def draw_bounding_box_on_image_array(image,
                                      ymin,
                                      xmin,
@@ -624,17 +624,18 @@ def visualize_boxes_and_labels_on_image_array(
             else:
               class_name = 'N/A'
             display_str = str(class_name)
-        if not skip_scores:
-          if not display_str:
-            display_str = '{}%'.format(int(100*scores[i]))
+        if class_name == "person":
+          if not skip_scores:
+            if not display_str:
+              display_str = '{}%'.format(int(100*scores[i]))
+            else:
+              display_str = '{}: {}%'.format(display_str, int(100*scores[i]))
+          box_to_display_str_map[box].append(display_str)
+          if agnostic_mode:
+            box_to_color_map[box] = 'DarkOrange'
           else:
-            display_str = '{}: {}%'.format(display_str, int(100*scores[i]))
-        box_to_display_str_map[box].append(display_str)
-        if agnostic_mode:
-          box_to_color_map[box] = 'DarkOrange'
-        else:
-          box_to_color_map[box] = STANDARD_COLORS[
-              classes[i] % len(STANDARD_COLORS)]
+            box_to_color_map[box] = STANDARD_COLORS[
+                classes[i] % len(STANDARD_COLORS)]
 
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
@@ -652,6 +653,7 @@ def visualize_boxes_and_labels_on_image_array(
           color='red',
           alpha=1.0
       )
+    # useful
     draw_bounding_box_on_image_array(
         image,
         ymin,
@@ -670,7 +672,7 @@ def visualize_boxes_and_labels_on_image_array(
           radius=line_thickness / 2,
           use_normalized_coordinates=use_normalized_coordinates)
 
-  return image
+  return image,box_to_color_map.items()
 
 
 def add_cdf_image_summary(values, name):

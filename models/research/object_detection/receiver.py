@@ -40,7 +40,7 @@ def socket_service():
     while True:
         sock, addr = s.accept()
         deal_data(sock, addr)
-        os.system('python photo_test.py --path image/query1.jpg')
+        os.system('python photo_query.py --path image/query1.jpg')
         os.system('cd /d e://triplet-reid &&'
                   ' python evaluate.py'
                   ' --query_dataset data\query.csv'

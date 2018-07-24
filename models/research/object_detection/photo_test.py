@@ -73,11 +73,11 @@ def load_image_into_numpy_array(image):
 def main():
     args = parser.parse_args()
     count = 0
-    scan_csv = open('E://triplet-reid/data/scan.csv', 'a+', newline='')
+    scan_csv = open('D://triplet-reid/data/scan.csv', 'a+', newline='')
     scan_writer = csv.writer(scan_csv)
     with detection_graph.as_default():
         with tf.Session(graph=detection_graph) as sess:
-            writer = tf.summary.FileWriter("logs/", sess.graph)
+            # writer = tf.summary.FileWriter("logs/", sess.graph)
             sess.run(tf.global_variables_initializer())
             filename = args.path
             t, camera_id, pic_id = format.parse_filename(filename)
@@ -122,7 +122,7 @@ def main():
                 cropImg = cropImg.resize(IMAGE_SIZE, Image.ANTIALIAS)
                 count += 1
                 fn = format.format_filename(t, camera_id, pic_id, count)
-                cropImg.save("e://triplet-reid/reid-test/scan/" + fn)
+                cropImg.save("d://triplet-reid/reid-test/scan/" + fn)
                 id, ret = format.format_csvpath("scan", fn )
                 scan_writer.writerow([id, ret])
     scan_csv.close()

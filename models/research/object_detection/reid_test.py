@@ -8,7 +8,9 @@ import tensorflow as tf
 import cv2
 import time
 import csv
+import format
 from argparse import ArgumentParser
+
 
 from PIL import Image
 
@@ -23,6 +25,9 @@ parser = ArgumentParser(description='Reid test.')
 parser.add_argument(
     '--path', required=True,
     help='Path to the video file.')
+parser.add_argument(
+    '--camera', required=True,
+    help='The camera id.')
 
 
 
@@ -66,16 +71,17 @@ category_index = label_map_util.create_category_index(categories)
 
 def main():
     args = parser.parse_args()
+    camera_id = args.camera
     count = 0
     query_count = 0
-    test_csv = open('E://triplet-reid/data/test.csv', 'w', newline='')
+    test_csv = open('D://triplet-reid/data/test.csv', 'w', newline='')
     test_writer = csv.writer(test_csv)
-    query_csv = open('E://triplet-reid/data/query.csv', 'w', newline='')
+    query_csv = open('D://triplet-reid/data/query.csv', 'w', newline='')
     query_writer = csv.writer(query_csv)
     cap = cv2.VideoCapture(args.path)
     with detection_graph.as_default():
         with tf.Session(graph=detection_graph) as sess:
-            writer = tf.summary.FileWriter("logs/", sess.graph)
+            # writer = tf.summary.FileWriter("logs/", sess.graph)
             sess.run(tf.global_variables_initializer())
             start = time.clock()
             frame_num = 0
@@ -87,7 +93,7 @@ def main():
                     break
                 else:
                     im = Image.fromarray(image_np.astype(np.uint8))
-                if frame_num % 60 == 1:
+                if frame_num % 30 == 1:
                   # the array based representation of the image will be used later in order to prepare the
                   # result image with boxes and labels on it.
                   # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
@@ -127,13 +133,14 @@ def main():
                       cropImg = cropImg.resize(IMAGE_SIZE, Image.ANTIALIAS)
                       if frame_num > 200:
                           count += 1
-                          cropImg.save("e://triplet-reid/reid-test/test/camera1_test" + str(count) + ".jpg")
                           present_time = time.clock()
-                          name_str = "test/camera1_" + "test" + str(count) + ".jpg"
-                          test_writer.writerow([int(present_time), name_str])
+                          name_str = format.format_filename_basic(int(present_time), camera_id, count)
+                          cropImg.save("d://triplet-reid/reid-test/test/"+ name_str + ".jpg")
+                          id, ret = format.format_csvpath("test",name_str)
+                          test_writer.writerow([id, ret + ".jpg"])
                       else:
                           query_count += 1
-                          cropImg.save("e://triplet-reid/reid-test/query/camera1_query" + str(query_count) + ".jpg")
+                          cropImg.save("d://triplet-reid/reid-test/query/camera1_query" + str(query_count) + ".jpg")
                           present_time = time.clock()
                           name_str = "query/camera1_" + "query" + str(query_count) + ".jpg"
                           query_writer.writerow([int(present_time), name_str])
@@ -142,7 +149,7 @@ def main():
     test_csv.close()
     query_csv.close()
     start = time.clock()
-    os.system('cd /d e://triplet-reid &&' 
+    os.system('cd /d d://triplet-reid &&' 
                ' python grade.py')
     end = time.clock()
     print("time:", end-start)
