@@ -76,10 +76,10 @@ export default class Crop extends React.Component {
     $.ajax({
       type: "GET",
       url: 'http://localhost:8081/find/history',
-      dataType: "json",
+      dataType: "text",
       success: function (data) {
         this.setState({
-          result: JSON.parse(data),
+          result: data,
         });
         console.log("success");
         console.log(data);
@@ -96,7 +96,9 @@ export default class Crop extends React.Component {
   }
 
   render() {
+    console.log(this.state.result);
     let tem_result = [];
+    let tem = this.state.result;
     if (this.state.result === -1) {
       tem_result.push(
         <div>
@@ -104,17 +106,25 @@ export default class Crop extends React.Component {
           <Icon type="loading"/>
         </div>)
     }
-    else if (this.state.result === 1) {
+    else if (tem.indexOf("Found:")!==-1) {
       setTimeout(2000);
       tem_result.push(
         <div>
+          <h3>{this.state.result}</h3>
           <img src="http://localhost:8081/recv/recv.jpg"/>
         </div>)
     }
-    else {
+    else if(tem === "Not Found"){
       tem_result.push(
         <div>
-          <p>Failed</p>
+          <h3>Sorry,Not Found</h3>
+        </div>
+      )
+    }
+    else{
+      tem_result.push(
+        <div>
+          <h3>Something wrong happened!</h3>
         </div>
       )
     }
