@@ -1,9 +1,8 @@
 # Summer-Project-of-Software-Engineering
 # Group 8
 ## 开发记录
-----
 ### Iteration I
-### Week One
+#### Week One
 2018-7-2
 - 建立github repo并各自建立分支，尝试pull request等功能。
 - 建立README
@@ -32,7 +31,7 @@
 - 将此html修改为react的语法，实现从我们的前端项目中获得监控画面
 - 完善前端功能，实现登陆注册输入的自动检验
 
-### Week Two
+#### Week Two
 2018-7-9
 - 继续完善后端功能
 - 尝试实现前端的截屏等图片视频小功能
@@ -63,7 +62,7 @@
 - 完善迭代报告和测试用例，完成测试报告
 -----
 ### Iteration II
-### Week Three
+#### Week Three
 2018-7-16
 - 增加选择框，为设想的不提供图片而是根据描述特征进行识别搜寻做前端的准备
 - 美化前端界面排版
@@ -93,7 +92,7 @@
 - 将模拟预测的Scan算法与web项目结合，增加相关的前端支持，美化前端
 - 录制测试视频
 
-### Week Four
+#### Week Four
 2018-7-23
 - 继续进行前后端的测试编写
 - 开始写迭代报告和测试报告
