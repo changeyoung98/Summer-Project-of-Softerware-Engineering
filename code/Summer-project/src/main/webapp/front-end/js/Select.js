@@ -9,6 +9,7 @@ class Selection extends React.Component {
     this.state = {
       result: -1,
       visible:false,
+      tem_result:[],
     };
     this.handleChange = this.handleChange.bind(this);
     this.find_instance = this.find_instance.bind(this);
@@ -35,6 +36,7 @@ class Selection extends React.Component {
     });
     */
     this.setState({
+      result:-1,
       visible:true,
     });
     $.ajax({
@@ -59,7 +61,7 @@ class Selection extends React.Component {
 
 
   render() {
-    let tem_result = [];
+    let tem_result=[];
     let tem = this.state.result;
     if (this.state.result === -1) {
       tem_result.push(
@@ -75,7 +77,7 @@ class Selection extends React.Component {
       tem_result.push(
         <div>
           <h3>Found In Camera {camera}</h3>
-          <img src={filepath}/>
+          <img src={filepath} style={{width:300}}/>
         </div>)
     }
     else if(tem ==="Not Found"){

@@ -38,6 +38,7 @@ class RegistrationForm extends React.Component {
     this.handle4 = this.handle4.bind(this);
     this.handle5 = this.handle5.bind(this);
     this.login = this.login.bind(this);
+    this.validateUsername = this.validateUsername.bind(this);
 
   }
 
@@ -77,12 +78,27 @@ class RegistrationForm extends React.Component {
     }
   }
 
+  validateUsername(rule,value,callback){
+    if(value.indexOf("--")!==-1||value.indexOf("'")!==-1||value.indexOf("\"")!==-1||
+      value.indexOf("=")!==-1||value.indexOf("#")!==-1){
+      callback("Can't contains -- ' \" = #");
+    }
+    else{
+      callback();
+    }
+  }
+
   validateToNextPassword(rule, value, callback) {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
       form.validateFields(['confirm'], {force: true});
     }
-    callback();
+    if(value.length<6){
+      callback("Length must be larger than 5");
+    }
+    else {
+      callback();
+    }
   }
 
   handleWebsiteChange(value) {
@@ -144,7 +160,9 @@ class RegistrationForm extends React.Component {
   }
 
   login() {
-    if (this.state.checkBox === false || this.state.password !== this.state.cpassword) {
+    if (this.state.checkBox === false || this.state.password !== this.state.cpassword
+    ||this.state.username.indexOf("--")!==-1||this.state.username.indexOf("'")!==-1||this.state.username.indexOf("\"")!==-1||
+      this.state.username.indexOf("=")!==-1||this.state.username.indexOf("#")!==-1) {
       this.setState({
         result: 0,
       })
@@ -232,7 +250,8 @@ class RegistrationForm extends React.Component {
                 <Alert
                   message="Error Message"
                   description="1.No aggrement
-                  2.The two password is not same"
+                  2.The two password is not same
+                  3.Username not Validate"
                   type="error"
                   closable
                   onClose={onClose}
@@ -299,7 +318,11 @@ class RegistrationForm extends React.Component {
               )}
             >
               {getFieldDecorator('nickname', {
-                rules: [{required: true, message: 'Please input your nickname!', whitespace: true}],
+                rules: [{required: true, message: 'Please input your nickname!', whitespace: true},
+                  {
+                    validator:this.validateUsername,
+                  }
+                ],
               })(
                 <Input value={this.state.username}
                        onChange={this.handle1}/>

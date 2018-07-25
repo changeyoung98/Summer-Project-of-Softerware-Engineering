@@ -17,6 +17,8 @@ public class UserImpl implements User {
   public int checkUser(String username, String password) {
     Session session = null;
     List<UserEntity> list = null;
+    MD5 md5 = new MD5();
+    String passwordHash = md5.GetMD5Code(username+password);
     int isValid = 0;
     try {
       Configuration conf = new Configuration().configure();
@@ -26,7 +28,7 @@ public class UserImpl implements User {
       Query query;
       query = session.createQuery(hql);
       query.setParameter("name", username);
-      query.setParameter("password", password);
+      query.setParameter("password", passwordHash);
       list = query.list();
       if (list.size() > 0)
         isValid = 1;
@@ -57,10 +59,13 @@ public class UserImpl implements User {
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
     UserEntity user = new UserEntity();
+
+    MD5 md5 = new MD5();
+    String passwordHash = md5.GetMD5Code(username + password);
     user.setUsername(username);
     user.setEmail(email);
     user.setPhone(phone);
-    user.setPassword(password);
+    user.setPassword(passwordHash);
     session.save(user);
     tx.commit();
   }

@@ -71,6 +71,7 @@ export default class Crop extends React.Component {
 
   upload() {
     this.setState({
+      result:-1,
       visible:true,
     });
     $.ajax({
@@ -115,7 +116,7 @@ export default class Crop extends React.Component {
         </div>)
     }
     else if(tem === "Not Found"){
-      tem_result.push(
+     tem_result.push(
         <div>
           <h3>Sorry,Not Found</h3>
         </div>
