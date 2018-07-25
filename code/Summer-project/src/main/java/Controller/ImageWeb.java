@@ -12,6 +12,6 @@ public class ImageWeb {
   @ResponseBody
   public int download(@RequestParam String url){
    Image image = new Image();
-    return image.download(url);
+    return image.download(url,"none");
   }
 }

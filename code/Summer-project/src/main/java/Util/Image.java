@@ -10,9 +10,9 @@ import java.io.FileOutputStream;
 
 public class Image {
 
-  public int download(String url) {
-    String path = "C:\\Users\\联想\\test.png";
-    String result = "C:\\Users\\联想\\Image\\Sample\\result.jpg";
+  public int download(String url,String name) {
+    String path = "C:\\Users\\Public\\Image\\Tem\\crop.png";
+    String result = "C:\\Users\\Public\\Image\\Sample\\query1.jpg";
     try {
       BASE64Decoder decoder=new BASE64Decoder();
       FileOutputStream write = new FileOutputStream(new File(path));
