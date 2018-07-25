@@ -1,5 +1,5 @@
 import React from 'react'
-import {Select,Button,Icon} from 'antd'
+import {Select,Button,Icon,Modal} from 'antd'
 
 const Option = Select.Option;
 

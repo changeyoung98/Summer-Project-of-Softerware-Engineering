@@ -192,10 +192,10 @@ class First extends React.Component {
                   <Video handleTime={this.handleTime}/>
                 </TabPane>
                 <TabPane tab={<span><Icon type="android"/>Page 2</span>} key="2">
-                  <Select/>
+                  <Cropper time={this.state.time}/>
                 </TabPane>
                 <TabPane tab={<span><Icon type="android"/>Page 3</span>} key="3">
-                  <Cropper time={this.state.time}/>
+                  <Select/>
                 </TabPane>
               </Tabs>
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import Dropzone from 'react-dropzone'
 import Cropper from 'react-cropper'
+import Dropzone from 'react-dropzone'
 import {Button} from 'antd'
 
 class Uploadform extends React.Component {

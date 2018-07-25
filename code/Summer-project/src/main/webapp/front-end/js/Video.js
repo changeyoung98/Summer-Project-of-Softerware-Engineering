@@ -1,6 +1,7 @@
 import React from 'react'
 import {Button,message} from 'antd'
 import Play from './Play'
+import Demo from './demo'
 
 const warning =()=> {
   message.warning('Waiting for selecting a camera');
@@ -20,17 +21,17 @@ class Video extends React.Component {
       now_camera: null,
       url: null,
       history: [],
-      instance:[],
+      instance: [],
       currentTime: null,
       state: 0,
       camera:
         [
           {
-            instance: "rtmp://pull-g.kktv8.com/livekktv/100987038 ",
+            instance: "rtmp://192.168.0.120:1935/oflaDemo",
             history: "http://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.com/691201536EE4912BF7E4F1E2C67B8119.mp4"
           },
           {
-            instance: "rtmp://192.168.1.127:1935/oflaDemo/stream15308",
+            instance: "rtmp://192.168.0.120:1935/oflaDemo",
             history: "http://localhost:8081/video/test.mp4"
           }]
     };
@@ -41,17 +42,12 @@ class Video extends React.Component {
   }
 
   getVideo(index) {
-    let tem=[];
-    let url = this.state.camera[index];
-    tem.push(
-      <Play url={url.instance}/>
-    );
     this.setState({
       state: 1,
       url: this.state.camera[index],
       now_camera: index,
-      history:[],
-      instance:tem,
+      history: [],
+      instance: [],
     });
   }
 
@@ -81,11 +77,14 @@ class Video extends React.Component {
       this.setState({
         currentTime: time,
       }, () => {
+        let history_url = this.state.url.history;
+        let path = history_url.split("/");
+        let video_name = path[path.length-1];
         $.ajax({
           type: "GET",
           url: 'http://localhost:8081/videos/cut',
           data: {
-            url: this.state.url.history,
+            url: video_name,
             time: this.state.currentTime,
           },
           dataType: "json",
@@ -127,7 +126,15 @@ class Video extends React.Component {
   }
 
   get() {
-    if (this.state.state === 1) {
+    let tem = [];
+    let url = this.state.url;
+    tem.push(
+      <Demo src={url.instance}/>
+    );
+    this.setState({
+      instance: tem,
+    })
+    /* if (this.state.state === 1) {
       let tem = 0;
       $.ajax({
         type: "GET",
@@ -145,6 +152,7 @@ class Video extends React.Component {
     else {
       warning();
     }
+    */
   }
 
   render() {
@@ -165,16 +173,17 @@ class Video extends React.Component {
           <div>
             <h3>Camera {this.state.now_camera}</h3>
           </div>
-          <div><Button type="primary" onClick={this.get}>Start</Button></div>
-          <div>
-            {this.state.instance}
+          <div><Button type="primary" onClick={this.get}>Real-Time Video</Button></div>
+          <div>{
+            this.state.instance
+          }
           </div>
-        </div>
+          </div>
         <div>
           <div>
-            History Video
+            <p>History Video</p>
           </div>
-          <Button type="primary" onClick={this.getVideoh}>Click</Button>
+          <Button type="primary" onClick={this.getVideoh}>Historical Video</Button>
           <Button type="primary" onClick={this.gets}>Cut</Button>
           <p>{this.state.currentTime}</p>
         </div>
@@ -182,8 +191,6 @@ class Video extends React.Component {
           {this.state.history}
         </div>
       </div>
-
-
     )
   }
 }
