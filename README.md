@@ -1,6 +1,8 @@
 # Summer-Project-of-Software-Engineering
 # Group 8
 ## 开发记录
+----
+### Iteration I
 ### Week One
 2018-7-2
 - 建立github repo并各自建立分支，尝试pull request等功能。
@@ -59,7 +61,8 @@
 - 后台可以通过视频或图片截取出里面的行人作为搜索目标集，并通过给出的目标行人图片进行行人再识别，在搜索目标集中找到目标人物
 - 进行迭代评审
 - 完善迭代报告和测试用例，完成测试报告
-
+-----
+### Iteration II
 ### Week Three
 2018-7-16
 - 增加选择框，为设想的不提供图片而是根据描述特征进行识别搜寻做前端的准备
