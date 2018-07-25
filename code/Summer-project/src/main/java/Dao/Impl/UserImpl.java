@@ -39,8 +39,13 @@ public class UserImpl implements User {
   }
   public int addUser(String username,String password ,String email,String phone){
     try{
-      insertUser(username,password,email,phone);
-      return 1;
+      if(checkUser(username,password)==1){
+        return 2;          /* duplicate */
+      }
+      else {
+        insertUser(username, password, email, phone);
+        return 1;
+      }
     }catch (HibernateException e) {
       e.printStackTrace();
       return 0;
