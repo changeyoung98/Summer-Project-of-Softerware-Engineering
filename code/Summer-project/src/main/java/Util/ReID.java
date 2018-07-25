@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.io.*;
 
-public class test {
+public class ReID {
 
   public String find_person(String filename) {
     String result = "";
@@ -33,19 +33,29 @@ public class test {
       BufferedReader in = new BufferedReader(new InputStreamReader(
         pr.getInputStream()));
       String line;
+      int iffind =0;
       while ((line = in.readLine()) != null) {
+        if(line.contains("Found:")){
+          iffind=1;
+          result = line;
+        }
         System.out.println(line);
       }
       in.close();
       pr.waitFor();
       System.out.println("end");
       System.out.println(result);
-      return result;
+      if(iffind==0){
+        return "Not Found";
+      }
+      else {
+        return result;
+      }
 
     } catch (Exception e) {
       System.out.println("调用python脚本并读取结果时出错：" + e.getMessage());
       System.out.println(result);
-      return result;
+      return "Something wrong happened";
     }
   }
 
@@ -74,19 +84,53 @@ public class test {
       BufferedReader in = new BufferedReader(new InputStreamReader(
         pr.getInputStream()));
       String line;
+      int iffind = 0;
       while ((line = in.readLine()) != null) {
+        if(line.contains("Found:")){
+          iffind=1;
+          result = line;
+          String path = line.split(":")[1];
+          try {
+            String oldPath = "C:\\Users\\Public\\Image\\Instance\\"+path;
+            String newPath ="C:\\Users\\Public\\Image\\Recv\\"+path;
+            int bytesum = 0;
+            int byteread = 0;
+            File oldfile = new File(oldPath);
+            if (oldfile.exists()) { //文件存在时
+              InputStream inStream = new FileInputStream(oldPath); //读入原文件
+              FileOutputStream fs = new FileOutputStream(newPath);
+              byte[] buffer = new byte[1444];
+              int length;
+              while ( (byteread = inStream.read(buffer)) != -1) {
+                bytesum += byteread; //字节数 文件大小
+//                    System.out.println(bytesum);
+                fs.write(buffer, 0, byteread);
+              }
+              inStream.close();
+            }
+          }
+          catch (Exception e) {
+            System.out.println("复制单个文件操作出错");
+            e.printStackTrace();
+          }
+        }
         System.out.println(line);
       }
       in.close();
       pr.waitFor();
       System.out.println("end");
       System.out.println(result);
-      return result;
+      if(iffind==0){
+        return "Not Found";
+      }
+      else{
+        return result;
+      }
 
     } catch (Exception e) {
       System.out.println("调用python脚本并读取结果时出错：" + e.getMessage());
       System.out.println(result);
-      return result;
+      return "Something wrong happended";
     }
 
 

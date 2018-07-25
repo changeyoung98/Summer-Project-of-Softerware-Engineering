@@ -6,12 +6,21 @@ import WrappedRegistrationForm from '../js/register'
 import { Form, Input, Tooltip, Icon, Select, Checkbox, Button, AutoComplete,Modal } from 'antd';
 import { shallow,render, configure ,mount} from 'enzyme'
 import  Adapter from 'enzyme-adapter-react-14';
-import ReactTestUtils from 'react-addons-test-utils'
+
 //import ReactTestUtils from'react-dom/test-utils';
 configure({ adapter: new Adapter() });
 
-const setup = () => {
+/*const setup = () => {
     // 模拟 props
+
+    return {
+        props,
+        wrapper
+    }
+}*/
+
+describe('WrappedRegistrationForm', () => {
+  //  const {wrapper, props} = setup();
     const props = {
         // Jest 提供的mock 函数
         state :{
@@ -32,15 +41,6 @@ const setup = () => {
         })
     }
     const wrapper = mount(<WrappedRegistrationForm {...props}/>)
-    return {
-        props,
-        wrapper
-    }
-}
-
-describe('WrappedRegistrationForm', () => {
-    const {wrapper, props} = setup();
-
     // case1
     // 通过查找是否存在 Input,测试组件正常渲染
     it('WrappedRegistrationForm Component should render', () => {
@@ -59,14 +59,7 @@ describe('WrappedRegistrationForm', () => {
         expect(wrapper.find('layout').exists());
     });
     it('WrappedRegistrationForm Component should click', () => {
-        //.find(selector) 是 Enzyme shallow Rendering 提供的语法, 用于查找节点
-        // 详细用法见 Enzyme 文档 http://airbnb.io/enzyme/docs/api/shallow.html
-       // const showModalMock =jest.fn();
-       /* const wrapperB = mount(
-            <Button onClick={props.showModal}/>
-        );*/
         const buttonDom=wrapper.find('Button').at(0);
-      //  expect(wrapper.prop[0]).toBe();
         buttonDom.simulate('click');
         expect(props.showModal).toBeCalled;
         expect(wrapper.find('visible').exists());
@@ -81,6 +74,5 @@ describe('WrappedRegistrationForm', () => {
         formDom.simulate('submit');
         expect(handleSubmit).toBeCalled;
     });
-
 
 });

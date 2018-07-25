@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video render basic uses 1`] = `
+<div>
+  <img
+    height="300"
+    src="./floor1.jpg"
+    usemap="#mymap"
+    width="500"
+  />
+  <map
+    name="mymap"
+  >
+    <area
+      alt="camera1"
+      coords="0,0,100,100"
+      shape="rect"
+    />
+    <area
+      alt="camera2"
+      coords="240,0,320,100"
+      shape="rect"
+    />
+  </map>
+  <div
+    id="player"
+  >
+    <div>
+      <h3>
+        Camera 
+      </h3>
+    </div>
+    <div>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Start
+        </span>
+      </button>
+    </div>
+    <div />
+  </div>
+  <div>
+    <div>
+      History Video
+    </div>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Click
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Cut
+      </span>
+    </button>
+    <p />
+  </div>
+  <div
+    id="playerh"
+  />
+</div>
+`;

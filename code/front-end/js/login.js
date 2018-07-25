@@ -48,7 +48,7 @@ class Login extends React.Component{
                         onCancel={this.handleCancel}
                     >
                         <div className="input">
-                            <Input size="large" placeholder="Enter username" value={this.state.username}
+                            <Input  size="large" placeholder="Enter username" value={this.state.username}
                                    onChange={this.handle1}
                                    prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}/>
                         </div>
