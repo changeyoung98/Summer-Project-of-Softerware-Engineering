@@ -18,17 +18,17 @@ const setup = () => {
             now_camera: null,
             url: null,
             history: [],
-            instance:[],
+            instance: [],
             currentTime: null,
             state: 0,
             camera:
                 [
                     {
-                        instance: "rtmp://pull-g.kktv8.com/livekktv/100987038 ",
+                        instance: "rtmp://192.168.0.120:1935/oflaDemo",
                         history: "http://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.com/691201536EE4912BF7E4F1E2C67B8119.mp4"
                     },
                     {
-                        instance: "rtmp://192.168.1.127:1935/oflaDemo/stream15308",
+                        instance: "rtmp://192.168.0.120:1935/oflaDemo",
                         history: "http://localhost:8081/video/test.mp4"
                     }]
         },
@@ -55,20 +55,33 @@ describe('Video render', () => {
     });
 
     it('Button Component should render', () => {
-        //.find(selector) 是 Enzyme shallow Rendering 提供的语法, 用于查找节点
-        // 详细用法见 Enzyme 文档 http://airbnb.io/enzyme/docs/api/shallow.html
+
         expect(wrapper.find('Button').length).toBe(3);
     });
 
 
-    it('1 Component should click', () => {
+   /* it('1 Component should click', () => {
+       const  mockEvent={
+           state:1,
+           url:{
+               instance: "rtmp://192.168.0.120:1935/oflaDemo",
+              // history: "http://localhost:8081/video/test.mp4"
+           },
+        }
         const buttonDom = wrapper.find('Button').at(0);
-        buttonDom.simulate('click');
+        buttonDom.simulate('click',mockEvent);
         expect(props.get).toBeCalled;
-    });
+    });*/
     it('2 Component should click', () => {
+        const  mockEvent={
+             state:1,
+            url:{
+                instance: "rtmp://192.168.0.120:1935/oflaDemo",
+                 history: "http://localhost:8081/video/test.mp4"
+            },
+        }
         const buttonDom = wrapper.find('Button').at(1);
-        buttonDom.simulate('click');
+        buttonDom.simulate('click',mockEvent);
         expect(props.getVideoh).toBeCalled;
     });
     it('3 Component should click', () => {

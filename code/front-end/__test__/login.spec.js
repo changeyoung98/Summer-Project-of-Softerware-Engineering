@@ -13,9 +13,11 @@ const setup = () => {
     const props = {
         // Jest 提供的mock 函数
         state:{
-            visible:true,
-            username:null,
-            password:null,
+
+            visible: true,
+            username: null,
+            password: null,
+            result: -1,
         },
         handle1: jest.fn((e) => {
         }),
@@ -24,8 +26,9 @@ const setup = () => {
         handleOk: jest.fn((e) => {
         }),
         handleCancel: jest.fn((e) => {
-        })
-    }
+        }),
+        login:jest.fn()
+    };
     const wrapper = shallow(<Login {...props} />)
     return {
         props,

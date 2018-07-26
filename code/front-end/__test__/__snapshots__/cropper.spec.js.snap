@@ -2,6 +2,7 @@
 
 exports[`Cropper render basic use 1`] = `
 <div>
+  <noscript />
   <div
     style="width:100%;"
   >
@@ -97,7 +98,7 @@ exports[`Cropper render basic use 1`] = `
       </h1>
       <img
         alt="cropped image"
-        style="width:100%;"
+        style="height:500px;"
       />
     </div>
   </div>

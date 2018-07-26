@@ -36,7 +36,7 @@ exports[`Video render basic uses 1`] = `
         type="button"
       >
         <span>
-          Start
+          Real-Time Video
         </span>
       </button>
     </div>
@@ -44,14 +44,16 @@ exports[`Video render basic uses 1`] = `
   </div>
   <div>
     <div>
-      History Video
+      <p>
+        History Video
+      </p>
     </div>
     <button
       class="ant-btn ant-btn-primary"
       type="button"
     >
       <span>
-        Click
+        Historical Video
       </span>
     </button>
     <button
