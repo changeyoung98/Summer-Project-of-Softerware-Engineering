@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CKplayer</title>
+  <script type="text/javascript" src="ckplayer/ckplayer.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="video" style="width:320px;height:240px;"></div>
+<script type="text/javascript">
+  var videoObject= {
+    container: '.video',
+    variable: "player",
+    autoplay:true,
+    live:true,
+    video:"rtmp://live.hkstv.hk.lxdns.com/live/hks"
+  };
+  var player = new ckplayer(videoObject);
+</script>
+</body>
+</html>
